@@ -2,7 +2,7 @@ package task2.p1;
 
 import task2.p1.controller.ShapeController;
 import task2.p1.model.Shape;
-import task2.p1.model.ShapesGenerator;
+import task2.p1.controller.ShapesGenerator;
 import task2.p1.view.ShapeView;
 
 public class Main {
@@ -12,5 +12,6 @@ public class Main {
         ShapeController controller = new ShapeController(shapes, view);
         controller.showData();
         controller.showTotalArea();
+        controller.showTotalArea("Rectangle");
     }
 }

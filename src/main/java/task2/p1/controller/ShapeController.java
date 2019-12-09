@@ -25,6 +25,10 @@ public class ShapeController {
         shapeView.printTotalArea(AreaCalculator.calculateTotalArea(shapes));
     }
 
+    public void showTotalArea(String type) {
+        shapeView.printTotalArea(AreaCalculator.calculateTotalArea(shapes, type));
+    }
+
     public Shape[] sortByArea() {
         return null;
     }
