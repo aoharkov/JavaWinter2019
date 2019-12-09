@@ -10,8 +10,8 @@ public class Rectangle extends Shape {
         this.h = h;
     }
 
-    public void draw() {
-        System.out.printf("%s; area = %.2f\n", this, calcArea());
+    public String draw() {
+        return String.format("%s; area = %.2f\n", this, calcArea());
     }
 
     @Override
