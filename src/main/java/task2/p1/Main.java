@@ -1,11 +1,16 @@
 package task2.p1;
 
-import task2.p1.model.Rectangle;
+import task2.p1.controller.ShapeController;
 import task2.p1.model.Shape;
+import task2.p1.model.ShapesGenerator;
+import task2.p1.view.ShapeView;
 
 public class Main {
     public static void main(String[] args) {
-        Shape rectangle = new Rectangle("red", 10, 4);
-        System.out.println(rectangle.draw());
+        Shape[] shapes = ShapesGenerator.generateShapes(12);
+        ShapeView view = new ShapeView();
+        ShapeController controller = new ShapeController(shapes, view);
+        controller.showData();
+        controller.showTotalArea();
     }
 }
