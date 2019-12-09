@@ -3,6 +3,8 @@ package task2.p1.controller;
 import task2.p1.model.*;
 import task2.p1.view.ShapeView;
 
+import java.util.Arrays;
+
 
 public class ShapeController {
     private Shape[] shapes;
@@ -29,12 +31,12 @@ public class ShapeController {
         shapeView.printTotalArea(AreaCalculator.calculateTotalArea(shapes, type));
     }
 
-    public Shape[] sortByArea() {
-        return null;
+    public void sortByArea() {
+        Arrays.sort(shapes, new ShapeAreaComparator());
     }
 
-    public Shape[] sortByColour() {
-        return null;
+    public void  sortByColour() {
+        Arrays.sort(shapes, new ShapeColorComparator());
     }
 
 }

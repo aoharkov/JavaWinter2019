@@ -13,5 +13,10 @@ public class Main {
         controller.showData();
         controller.showTotalArea();
         controller.showTotalArea("Rectangle");
+        controller.sortByArea();
+        controller.showData();
+        System.out.println();
+        controller.sortByColour();
+        controller.showData();
     }
 }
