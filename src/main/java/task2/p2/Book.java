@@ -8,7 +8,7 @@ public class Book {
     private int numberOfPages;
     private int price;
 
-    public Book(String bookName, String authorName, String publisherName, int yearOfPublishing, int numberOfPages, int price) {
+    Book(String bookName, String authorName, String publisherName, int yearOfPublishing, int numberOfPages, int price) {
         this.bookName = bookName;
         this.authorName = authorName;
         this.publisherName = publisherName;
@@ -64,4 +64,5 @@ public class Book {
     public void setPrice(int price) {
         this.price = price;
     }
+
 }
