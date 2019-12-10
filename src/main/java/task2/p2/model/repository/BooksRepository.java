@@ -1,9 +1,11 @@
-package task2.p2;
+package task2.p2.model.repository;
+
+import task2.p2.model.domain.Book;
 
 public class BooksRepository {
     private Book[] books;
 
-    BooksRepository(Book[] books) {
+    public BooksRepository(Book[] books) {
         this.books = books;
     }
 

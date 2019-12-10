@@ -1,11 +1,14 @@
-package task2.p2;
+package task2.p2.model.utils;
+
+import task2.p2.model.domain.Book;
+import task2.p2.model.repository.BooksRepository;
 
 public class BooksRepositoryGenerator {
-    static BooksRepository generate() {
+    public static BooksRepository generate() {
         return generate(12);
     }
 
-    static BooksRepository generate(int num) {
+    public static BooksRepository generate(int num) {
         Book[] books = new Book[num];
         for (int i = 0; i < num; i++) {
             books[i] = BookGenerator.generate(i + 1);

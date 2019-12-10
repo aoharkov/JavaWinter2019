@@ -1,4 +1,4 @@
-package task2.p2;
+package task2.p2.model.domain;
 
 public class Book {
     private String bookName;
@@ -8,7 +8,7 @@ public class Book {
     private int numberOfPages;
     private int price;
 
-    Book(String bookName, String authorName, String publisherName, int yearOfPublishing, int numberOfPages, int price) {
+    public Book(String bookName, String authorName, String publisherName, int yearOfPublishing, int numberOfPages, int price) {
         this.bookName = bookName;
         this.authorName = authorName;
         this.publisherName = publisherName;

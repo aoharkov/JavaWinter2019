@@ -1,4 +1,6 @@
-package task2.p2;
+package task2.p2.model.utils;
+
+import task2.p2.model.domain.Book;
 
 class BookGenerator {
     static Book generate(int id) {
