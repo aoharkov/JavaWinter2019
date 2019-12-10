@@ -17,6 +17,12 @@ public class Book {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return String.format("\"%s\", written by %s. Published by %s in %d.\nConsist of %d pages, with total price of $%d",
+                bookName, authorName, publisherName, yearOfPublishing, numberOfPages, price);
+    }
+
     public String getBookName() {
         return bookName;
     }
