@@ -1,9 +1,9 @@
-package task2.p1.controller;
+package task2.p1.model.utils;
 
-import task2.p1.model.Circle;
-import task2.p1.model.Rectangle;
-import task2.p1.model.Shape;
-import task2.p1.model.Triangle;
+import task2.p1.model.domain.Circle;
+import task2.p1.model.domain.Rectangle;
+import task2.p1.model.domain.Shape;
+import task2.p1.model.domain.Triangle;
 
 public class ShapesGenerator {
     public static Shape[] generateShapes(int num) {

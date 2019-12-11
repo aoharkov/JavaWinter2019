@@ -1,6 +1,9 @@
 package task2.p1.controller;
 
-import task2.p1.model.*;
+import task2.p1.model.domain.Shape;
+import task2.p1.model.utils.AreaCalculator;
+import task2.p1.model.utils.ShapeAreaComparator;
+import task2.p1.model.utils.ShapeColorComparator;
 import task2.p1.view.ShapeView;
 
 import java.util.Arrays;

@@ -1,8 +1,8 @@
 package task2.p1;
 
 import task2.p1.controller.ShapeController;
-import task2.p1.model.Shape;
-import task2.p1.controller.ShapesGenerator;
+import task2.p1.model.domain.Shape;
+import task2.p1.model.utils.ShapesGenerator;
 import task2.p1.view.ShapeView;
 
 public class Main {

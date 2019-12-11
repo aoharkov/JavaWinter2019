@@ -1,4 +1,4 @@
-package task2.p1.model;
+package task2.p1.model.domain;
 
 public class Rectangle extends Shape {
     private double w;

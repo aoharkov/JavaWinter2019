@@ -1,10 +1,7 @@
 package task2.p2.model.service;
 
-import task2.p2.model.domain.Book;
 import task2.p2.model.repository.BooksRepository;
 import task2.p2.model.utils.BooksRepositoryGenerator;
-
-import java.awt.image.SampleModel;
 
 public class BooksService {
     private BooksRepository booksRepository;

@@ -1,6 +1,4 @@
-package task2.p1.model;
-
-import task2.p1.model.Shape;
+package task2.p1.model.domain;
 
 public class Triangle extends Shape {
     private double a;

@@ -1,4 +1,4 @@
-package task2.p1.model;
+package task2.p1.model.domain;
 
 public class Circle extends Shape {
     private double r;

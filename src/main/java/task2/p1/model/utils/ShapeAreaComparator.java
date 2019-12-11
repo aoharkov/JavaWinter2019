@@ -1,6 +1,6 @@
-package task2.p1.controller;
+package task2.p1.model.utils;
 
-import task2.p1.model.Shape;
+import task2.p1.model.domain.Shape;
 
 import java.util.Comparator;
 

@@ -1,9 +1,9 @@
-package task2.p1.controller;
+package task2.p1.model.utils;
 
-import task2.p1.model.Shape;
+import task2.p1.model.domain.Shape;
 
-class AreaCalculator {
-    static double calculateTotalArea(Shape[] shapes) {
+public class AreaCalculator {
+    public static double calculateTotalArea(Shape[] shapes) {
         double totalArea = 0.0; //better to initialise with double literal 0.0
         for (Shape shape :
                 shapes) {
@@ -12,7 +12,7 @@ class AreaCalculator {
         return totalArea;
     }
 
-    static double calculateTotalArea(Shape[] shapes, String type) {
+    public static double calculateTotalArea(Shape[] shapes, String type) {
         double totalArea = 0.0;
         for (Shape shape :
                 shapes) {

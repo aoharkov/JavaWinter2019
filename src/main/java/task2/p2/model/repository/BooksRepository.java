@@ -16,28 +16,8 @@ public class BooksRepository {
 
     }
 
-    @Override
-    public String toString() {
-        StringBuilder str = new StringBuilder();
-        str.append(String.format("Repository consist of %d books. They are:\n", books.length));
-        for (Book book :
-                books) {
-            str.append(book.toString());
-            str.append('\n');
-        }
-        return str.toString();
-    }
-
     public void sortByPublisher() {
         Arrays.sort(books, new BookPublisherComparator());
-    }
-
-    public Book[] getBooks() {
-        return books;
-    }
-
-    public void setBooks(Book[] books) {
-        this.books = books;
     }
 
     public Book[] showBooksOfAuthor(String authorName) {
@@ -70,5 +50,25 @@ public class BooksRepository {
             }
         }
         return sample;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("Repository consist of %d books. They are:\n", books.length));
+        for (Book book :
+                books) {
+            str.append(book.toString());
+            str.append('\n');
+        }
+        return str.toString();
+    }
+
+    public Book[] getBooks() {
+        return books;
+    }
+
+    public void setBooks(Book[] books) {
+        this.books = books;
     }
 }
