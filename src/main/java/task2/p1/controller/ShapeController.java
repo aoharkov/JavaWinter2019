@@ -4,6 +4,7 @@ import task2.p1.model.*;
 import task2.p1.view.ShapeView;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 
 public class ShapeController {
@@ -32,11 +33,17 @@ public class ShapeController {
     }
 
     public void sortByArea() {
-        Arrays.sort(shapes, new ShapeAreaComparator());
+        sortByComparator(new ShapeAreaComparator());
     }
 
     public void  sortByColour() {
-        Arrays.sort(shapes, new ShapeColorComparator());
+        sortByComparator(new ShapeColorComparator());
+    }
+
+    private Shape[] sortByComparator(Comparator comparator) {
+        Shape[] result = Arrays.copyOf(shapes, shapes.length);
+        Arrays.sort(result, comparator);
+        return result;
     }
 
 }
