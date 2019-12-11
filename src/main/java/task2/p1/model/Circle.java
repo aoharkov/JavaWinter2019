@@ -8,10 +8,6 @@ public class Circle extends Shape {
         this.r = r;
     }
 
-    public String draw() {
-        return String.format("%s; area = %.2f\n", this, calcArea());
-    }
-
     @Override
     public double calcArea() {
         return Math.PI * r * r;
