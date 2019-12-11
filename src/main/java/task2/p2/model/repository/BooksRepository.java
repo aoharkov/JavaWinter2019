@@ -1,6 +1,9 @@
 package task2.p2.model.repository;
 
 import task2.p2.model.domain.Book;
+import task2.p2.model.utils.BookPublisherComparator;
+
+import java.util.Arrays;
 
 public class BooksRepository {
     private Book[] books;
@@ -23,6 +26,10 @@ public class BooksRepository {
             str.append('\n');
         }
         return str.toString();
+    }
+
+    public void sortByPublisher() {
+        Arrays.sort(books, new BookPublisherComparator());
     }
 
     public Book[] getBooks() {

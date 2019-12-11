@@ -36,5 +36,10 @@ public class BooksService {
         return sample.toString();
     }
 
+    public String sortByPublisher() {
+        booksRepository.sortByPublisher();
+        return booksRepository.toString();
+    }
+
 
 }

@@ -17,22 +17,32 @@ public class BooksController {
         showBooksOfAuthor("Author1");
         showBooksOfPublisher("Publisher1");
         showBooksOfYearAfter(1995);
+        showSortedBooksByPublisher();
     }
 
     public void showBooks() {
-        view.update(service.showBooks());
+        view.update(service.showBooks() + "\n");
     }
 
     public void showBooksOfAuthor(String authorName) {
-        view.update(service.showBooksOfAuthor(authorName));
+        view.update("Books of " + authorName + "\n"
+                + service.showBooksOfAuthor(authorName) + "\n");
     }
 
     public void showBooksOfPublisher(String publisherName) {
-        view.update(service.showBooksOfPublisher(publisherName));
+        view.update("Books of " + publisherName + "\n"
+                + service.showBooksOfPublisher(publisherName) + "\n");
     }
 
     public void showBooksOfYearAfter(int year) {
-        view.update(service.showBooksOfYearAfter(year));
+        view.update("Books after " + year + "\n"
+                + service.showBooksOfYearAfter(year) + "\n");
     }
+
+    public void showSortedBooksByPublisher() {
+        view.update("Books sorted by publisher\n"
+                + service.sortByPublisher() + "\n");
+    }
+
 
 }
