@@ -12,8 +12,8 @@ public class ShapeView {
         }
     }
 
-    public void printTotalArea(int totalArea) {
-        System.out.println("Total area: " + totalArea);
+    public void printTotalArea(double totalArea) {
+        System.out.println(String.format("Total area: %.2f", totalArea));
     }
 
 }
