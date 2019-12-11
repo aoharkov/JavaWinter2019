@@ -3,23 +3,26 @@ package task2.p1.model;
 import task2.p1.model.Shape;
 
 public class Triangle extends Shape {
-    private double w;
-    private double h;
+    private double a;
+    private double b;
+    private double c;
 
-    public Triangle(String color, double w, double h) {
+    public Triangle(String color, double a, double b, double c) {
         super(color);
-        this.w = w;
-        this.h = h;
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
     @Override
     public double calcArea() {
-        return w * h / 2.0;
+        double p = (a + b + c) / 2.0;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     @Override
     public String toString() {
         return super.toString() +
-                ", w = " + w + ", h = " + h;
+                ", a = " + a + ", b = " + b + ", c = " + c;
     }
 }

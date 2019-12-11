@@ -17,7 +17,7 @@ public class ShapesGenerator {
                 default: colour = "red";
             }
             switch (i % 3) {
-                case 1 : shapes[i] = new Triangle(colour, i + 1, i + 1); break;
+                case 1 : shapes[i] = new Triangle(colour, i + 1, i + 1, i + 1); break;
                 case 2 : shapes[i] = new Circle(colour, i + 1); break;
                 default: shapes[i] = new Rectangle(colour, i + 1, i + 1);
             }
