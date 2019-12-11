@@ -17,8 +17,8 @@ public class BooksRepository {
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(String.format("Repository consist of %d books. They are:\n", books.length));
-        for (Book book:
-             books) {
+        for (Book book :
+                books) {
             str.append(book.toString());
             str.append('\n');
         }
@@ -31,5 +31,37 @@ public class BooksRepository {
 
     public void setBooks(Book[] books) {
         this.books = books;
+    }
+
+    public Book[] showBooksOfAuthor(String authorName) {
+        return checkByQueryValueOf("authorName", authorName);
+    }
+
+    public Book[] showBooksOfPublisher(String publisherName) {
+        return checkByQueryValueOf("publisherName", publisherName);
+    }
+
+    public Book[] showBooksOfYearAfter(int year) {
+        return checkByQueryValueOf("yearAfter", String.valueOf(year));
+    }
+
+    private Book[] checkByQueryValueOf(String nameOfQuery, String valueOfField) {
+        boolean[] matched = new boolean[books.length];
+        int counter = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].checkByQueryValueOf(nameOfQuery, valueOfField)) {
+                matched[i] = true;
+                counter++;
+            }
+        }
+        Book[] sample = new Book[counter];
+        counter = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (matched[i]) {
+                sample[counter] = books[i];
+                counter++;
+            }
+        }
+        return sample;
     }
 }

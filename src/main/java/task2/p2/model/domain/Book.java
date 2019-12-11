@@ -23,6 +23,15 @@ public class Book {
                 bookName, authorName, publisherName, yearOfPublishing, numberOfPages, price);
     }
 
+    public boolean checkByQueryValueOf(String nameOfQuery, String valueOfField) {
+        switch (nameOfQuery) {
+            case "authorName" : return this.authorName.equals(valueOfField);
+            case "publisherName" : return this.publisherName.equals(valueOfField);
+            case "yearAfter" : return this.yearOfPublishing > Integer.parseInt(valueOfField);
+            default:return false;
+        }
+    }
+
     public String getBookName() {
         return bookName;
     }
