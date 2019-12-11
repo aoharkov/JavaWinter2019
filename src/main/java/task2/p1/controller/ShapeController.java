@@ -1,52 +1,45 @@
 package task2.p1.controller;
 
-import task2.p1.model.domain.Shape;
-import task2.p1.model.utils.AreaCalculator;
-import task2.p1.model.utils.ShapeAreaComparator;
-import task2.p1.model.utils.ShapeColorComparator;
+import task2.p1.model.service.ShapeService;
 import task2.p1.view.ShapeView;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
-
 public class ShapeController {
-    private Shape[] shapes;
+    private ShapeService shapeService;
     private ShapeView shapeView;
-    
-    public ShapeController(Shape[] shapes, ShapeView shapeView) {
-        this.shapes = shapes;
+
+    public ShapeController(ShapeService shapeService, ShapeView shapeView) {
+        this.shapeService = shapeService;
         this.shapeView = shapeView;
     }
 
+    public ShapeController() {
+        this.shapeService = new ShapeService();
+        this.shapeView = new ShapeView();
+    }
+
     public void showData() {
-        String[] lines = new String[shapes.length];
-        for (int i = 0; i < shapes.length; i++) {
-            lines[i] = shapes[i].draw();
-        }
-        shapeView.printMessage(lines);
+        shapeView.printMessage("\nshowData:\n");
+        shapeView.printMessage(shapeService.showData());
     }
 
     public void showTotalArea() {
-        shapeView.printTotalArea(AreaCalculator.calculateTotalArea(shapes));
+        shapeView.printMessage("\nshowTotalArea:");
+        shapeView.printMessage(shapeService.showTotalArea());
     }
 
     public void showTotalArea(String type) {
-        shapeView.printTotalArea(AreaCalculator.calculateTotalArea(shapes, type));
+        shapeView.printMessage("\nshowTotalArea of type: " + type + ": ");
+        shapeView.printMessage(shapeService.showTotalArea(type));
     }
 
     public void sortByArea() {
-        sortByComparator(new ShapeAreaComparator());
+        shapeView.printMessage("\nshowSortedByArea:\n");
+        shapeView.printMessage(shapeService.sortByArea());
     }
 
-    public void  sortByColour() {
-        sortByComparator(new ShapeColorComparator());
-    }
-
-    private Shape[] sortByComparator(Comparator comparator) {
-        Shape[] result = Arrays.copyOf(shapes, shapes.length);
-        Arrays.sort(result, comparator);
-        return result;
+    public void sortByColour() {
+        shapeView.printMessage("\nshowSortedByColour:\n");
+        shapeView.printMessage(shapeService.sortByColour());
     }
 
 }
