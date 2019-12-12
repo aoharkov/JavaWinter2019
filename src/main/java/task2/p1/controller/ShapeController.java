@@ -1,6 +1,7 @@
 package task2.p1.controller;
 
 import task2.p1.model.service.ShapeService;
+import task2.p1.view.InputData;
 import task2.p1.view.ShapeView;
 
 public class ShapeController {
@@ -21,8 +22,20 @@ public class ShapeController {
         showData();
         showTotalArea();
         showTotalArea("Rectangle");
-        sortByArea();
-        sortByColour();
+        chooseCriteriaForSorting();
+    }
+
+    private void chooseCriteriaForSorting() {
+        shapeView.printMessage("Please enter the criteria of sorting (area, color) -> ");
+        String criteria = InputData.input().toLowerCase();
+        switch (criteria) {
+            case "area":
+                sortByArea(); break;
+            case "color":
+                sortByColour(); break;
+            default: shapeView.printMessage("Invalid criteria!!!");
+        }
+        //shapeView.printMessage("If you want to go break, type \"exit\".\n"
     }
 
     public void showData() {
