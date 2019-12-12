@@ -17,6 +17,14 @@ public class ShapeController {
         this.shapeView = new ShapeView();
     }
 
+    public void demo() {
+        showData();
+        showTotalArea();
+        showTotalArea("Rectangle");
+        sortByArea();
+        sortByColour();
+    }
+
     public void showData() {
         shapeView.printMessage("\nshowData:\n");
         shapeView.printMessage(shapeService.showData());
