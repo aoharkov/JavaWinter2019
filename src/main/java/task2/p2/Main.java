@@ -9,6 +9,6 @@ public class Main {
         BookService bookService = new BookService();
         BookView bookView = new BookView();
         BookController bookController = new BookController(bookService, bookView);
-        bookController.demo();
+        bookController.run();
     }
 }

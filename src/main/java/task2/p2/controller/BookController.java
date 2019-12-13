@@ -1,9 +1,10 @@
 package task2.p2.controller;
 
 import task2.p2.model.service.BookService;
+import task2.p2.view.BookInputData;
 import task2.p2.view.BookView;
 
-public class BookController {
+public class BookController implements Runnable {
     private BookService service;
     private BookView view;
 
@@ -12,37 +13,43 @@ public class BookController {
         this.view = view;
     }
 
-    public void demo() {
+    @Override
+    public void run() {
         showBooks();
-        showBooksOfAuthor("Author1");
-        showBooksOfPublisher("Publisher1");
-        showBooksOfYearAfter(1995);
         showSortedBooksByPublisher();
+        showBooksOfAuthor();
+        showBooksOfPublisher();
+        showBooksOfYearAfter();
     }
 
-    public void showBooks() {
-        view.update(service.showBooks() + "\n");
+    private void showBooks() {
+        view.viewData(service.showBooks() + "\n");
     }
 
-    public void showBooksOfAuthor(String authorName) {
-        view.update("Books of " + authorName + "\n"
-                + service.showBooksOfAuthor(authorName) + "\n");
-    }
-
-    public void showBooksOfPublisher(String publisherName) {
-        view.update("Books of " + publisherName + "\n"
-                + service.showBooksOfPublisher(publisherName) + "\n");
-    }
-
-    public void showBooksOfYearAfter(int year) {
-        view.update("Books after " + year + "\n"
-                + service.showBooksOfYearAfter(year) + "\n");
-    }
-
-    public void showSortedBooksByPublisher() {
-        view.update("Books sorted by publisher\n"
+    private void showSortedBooksByPublisher() {
+        view.viewData("Books sorted by publisher\n"
                 + service.sortByPublisher() + "\n");
     }
 
+    private void showBooksOfAuthor() {
+        view.viewData("\nEnter name of author for search -> ");
+        String authorName = BookInputData.input();
+        view.viewData("Books of " + authorName + "\n"
+                + service.showBooksOfAuthor(authorName) + "\n");
+    }
+
+    private void showBooksOfPublisher() {
+        view.viewData("\nEnter name of publisher for search -> ");
+        String publisherName = BookInputData.input();
+        view.viewData("Books of " + publisherName + "\n"
+                + service.showBooksOfPublisher(publisherName) + "\n");
+    }
+
+    private void showBooksOfYearAfter() {
+        view.viewData("\nEnter year for search after-> ");
+        int year = Integer.parseInt(BookInputData.input());
+        view.viewData("Books after " + year + "\n"
+                + service.showBooksOfYearAfter(year) + "\n");
+    }
 
 }

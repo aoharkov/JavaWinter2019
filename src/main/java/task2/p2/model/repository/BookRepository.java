@@ -55,7 +55,11 @@ public class BookRepository {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append(String.format("Repository consist of %d books. They are:\n", books.length));
+        str.append(String.format("Repository consist of %d books.", books.length));
+        if (books.length > 0) {
+            str.append(" They are:");
+        }
+        str.append("\n");
         for (Book book :
                 books) {
             str.append(book.toString());
