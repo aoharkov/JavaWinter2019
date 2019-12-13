@@ -1,13 +1,13 @@
 package task2.p2.controller;
 
-import task2.p2.model.service.BooksService;
-import task2.p2.view.BooksView;
+import task2.p2.model.service.BookService;
+import task2.p2.view.BookView;
 
-public class BooksController {
-    private BooksService service;
-    private BooksView view;
+public class BookController {
+    private BookService service;
+    private BookView view;
 
-    public BooksController(BooksService service, BooksView view) {
+    public BookController(BookService service, BookView view) {
         this.service = service;
         this.view = view;
     }

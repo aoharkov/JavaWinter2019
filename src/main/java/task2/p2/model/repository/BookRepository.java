@@ -5,14 +5,14 @@ import task2.p2.model.utils.BookPublisherComparator;
 
 import java.util.Arrays;
 
-public class BooksRepository {
+public class BookRepository {
     private Book[] books;
 
-    public BooksRepository(Book[] books) {
+    public BookRepository(Book[] books) {
         this.books = books;
     }
 
-    public BooksRepository() {
+    public BookRepository() {
 
     }
 
