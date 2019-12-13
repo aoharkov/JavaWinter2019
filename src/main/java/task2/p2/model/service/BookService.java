@@ -6,10 +6,6 @@ import task2.p2.model.utils.BookRepositoryGenerator;
 public class BookService {
     private BookRepository bookRepository;
 
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
-
     public BookService() {
         this.bookRepository = BookRepositoryGenerator.generate(12);
     }

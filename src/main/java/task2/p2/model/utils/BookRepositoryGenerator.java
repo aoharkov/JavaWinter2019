@@ -4,10 +4,6 @@ import task2.p2.model.domain.Book;
 import task2.p2.model.repository.BookRepository;
 
 public class BookRepositoryGenerator {
-    public static BookRepository generate() {
-        return generate(12);
-    }
-
     public static BookRepository generate(int num) {
         Book[] books = new Book[num];
         for (int i = 0; i < num; i++) {

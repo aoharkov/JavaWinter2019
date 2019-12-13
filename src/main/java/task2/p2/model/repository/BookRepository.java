@@ -12,10 +12,6 @@ public class BookRepository {
         this.books = books;
     }
 
-    public BookRepository() {
-
-    }
-
     public void sortByPublisher() {
         Arrays.sort(books, new BookPublisherComparator());
     }
@@ -66,13 +62,5 @@ public class BookRepository {
             str.append('\n');
         }
         return str.toString();
-    }
-
-    public Book[] getBooks() {
-        return books;
-    }
-
-    public void setBooks(Book[] books) {
-        this.books = books;
     }
 }
