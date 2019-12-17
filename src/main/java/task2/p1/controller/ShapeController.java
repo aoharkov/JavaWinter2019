@@ -23,7 +23,7 @@ public class ShapeController implements Runnable {
     }
 
     private void readShapeFromConsole(){
-        shapeView.printMessage("\nPlease enter the Shape in following format \"Circle:red, 10\" -> ");
+        shapeView.printMessage("\nPlease enter the Shape in following format: Circle:red, 10 -> ");
         System.out.println(ShapeParser.parse(ShapeInputData.nextLine()));
     }
 
