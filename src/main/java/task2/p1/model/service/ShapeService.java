@@ -10,10 +10,6 @@ import java.util.Comparator;
 public class ShapeService {
     private ShapeRepository repository;
 
-    public ShapeService(ShapeRepository repository) {
-        this.repository = repository;
-    }
-
     public ShapeService() {
         this.repository = new ShapeRepository();
     }
