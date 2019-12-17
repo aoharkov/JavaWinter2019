@@ -16,7 +16,7 @@ public class AreaCalculator {
         double totalArea = 0.0;
         for (Shape shape :
                 shapes) {
-            if (shape.getClass().getSimpleName().equals(type)) {
+            if (shape.getClass().getSimpleName().toUpperCase().equals(type)) {
                 totalArea += shape.calcArea();
             }
         }

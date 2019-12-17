@@ -1,5 +1,6 @@
 package task2.p1.controller;
 
+import task2.p1.model.entity.ShapeType;
 import task2.p1.model.service.ShapeService;
 import task2.p1.view.ShapeInputData;
 import task2.p1.view.ShapeView;
@@ -39,12 +40,12 @@ public class ShapeController implements Runnable {
 
     private void chooseTypeForShowingTotalArea() {
         shapeView.printMessage("\nPlease enter the type of sorting (Rectangle, Triangle, Circle) -> ");
-        String type = ShapeInputData.next();
-        switch (type) {
-            case "Rectangle":
-            case "Triangle":
-            case "Circle":
-                showTotalArea(type); break;
+        ShapeType shapeType = ShapeType.valueOf(ShapeInputData.next().toUpperCase());
+        switch (shapeType) {
+            case RECTANGLE:
+            case TRIANGLE:
+            case CIRCLE:
+                showTotalArea(shapeType.name()); break;
             default:
                 shapeView.printMessage("\nInvalid type!!!\n");
         }
