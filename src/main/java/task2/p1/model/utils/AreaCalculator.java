@@ -1,6 +1,6 @@
 package task2.p1.model.utils;
 
-import task2.p1.model.domain.Shape;
+import task2.p1.model.entity.Shape;
 
 public class AreaCalculator {
     public static double calculateTotalArea(Shape[] shapes) {

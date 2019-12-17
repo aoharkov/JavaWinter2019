@@ -15,10 +15,20 @@ public class ShapeController implements Runnable {
 
     @Override
     public void run() {
-        showData();
-        showTotalArea();
-        chooseTypeForShowingTotalArea();
-        chooseCriteriaForSorting();
+        //showData();
+        //showTotalArea();
+        //chooseTypeForShowingTotalArea();
+        //chooseCriteriaForSorting();
+    }
+
+    private void showData() {
+        shapeView.printMessage("\nShow data:\n");
+        shapeView.printMessage(shapeService.showData());
+    }
+
+    private void showTotalArea() {
+        shapeView.printMessage("\nShow total area: ");
+        shapeView.printMessage(shapeService.showTotalArea());
     }
 
     private void chooseTypeForShowingTotalArea() {
@@ -47,16 +57,6 @@ public class ShapeController implements Runnable {
             default:
                 shapeView.printMessage("\nInvalid criteria!!!\n");
         }
-    }
-
-    private void showData() {
-        shapeView.printMessage("\nShow data:\n");
-        shapeView.printMessage(shapeService.showData());
-    }
-
-    private void showTotalArea() {
-        shapeView.printMessage("\nShow total area: ");
-        shapeView.printMessage(shapeService.showTotalArea());
     }
 
     private void showTotalArea(String type) {

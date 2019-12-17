@@ -1,4 +1,4 @@
-package task2.p1.model.domain;
+package task2.p1.model.entity;
 
 public class Triangle extends Shape {
     private double a;
@@ -10,6 +10,12 @@ public class Triangle extends Shape {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    public static Triangle parseShape(String data) {
+        //Example of data == "Triangle:red, 10, 10, 10"
+        String[] tokens = data.split("[:,]");
+        return new Triangle(tokens[1], Double.parseDouble(tokens[2]), Double.parseDouble(tokens[3]), Double.parseDouble(tokens[4]));
     }
 
     @Override

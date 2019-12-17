@@ -1,9 +1,9 @@
 package task2.p1.model.utils;
 
-import task2.p1.model.domain.Circle;
-import task2.p1.model.domain.Rectangle;
-import task2.p1.model.domain.Shape;
-import task2.p1.model.domain.Triangle;
+import task2.p1.model.entity.Circle;
+import task2.p1.model.entity.Rectangle;
+import task2.p1.model.entity.Shape;
+import task2.p1.model.entity.Triangle;
 
 public class ShapesGenerator {
     public static Shape[] generateShapes(int num) {

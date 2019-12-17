@@ -1,6 +1,6 @@
 package task2.p1.model.repository;
 
-import task2.p1.model.domain.Shape;
+import task2.p1.model.entity.Shape;
 import task2.p1.model.utils.ShapesGenerator;
 
 public class ShapeRepository {

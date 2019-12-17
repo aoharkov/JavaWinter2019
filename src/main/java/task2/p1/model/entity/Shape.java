@@ -1,4 +1,4 @@
-package task2.p1.model.domain;
+package task2.p1.model.entity;
 
 public abstract class Shape implements Drawable {
     private String shapeColor;

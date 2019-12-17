@@ -1,6 +1,6 @@
 package task2.p1.model.service;
 
-import task2.p1.model.domain.Shape;
+import task2.p1.model.entity.Shape;
 import task2.p1.model.repository.ShapeRepository;
 import task2.p1.model.utils.AreaCalculator;
 
