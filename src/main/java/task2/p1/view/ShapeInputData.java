@@ -4,11 +4,7 @@ import java.util.Scanner;
 
 public class ShapeInputData {
     private static Scanner scanner = new Scanner(System.in);
-    public static String next() {
+    public static String input() {
         return scanner.next();
-    }
-
-    public static String nextLine() {
-        return scanner.nextLine();
     }
 }

@@ -15,16 +15,10 @@ public class ShapeController implements Runnable {
 
     @Override
     public void run() {
-        showData();
-        showTotalArea();
-        chooseTypeForShowingTotalArea();
-        chooseCriteriaForSorting();
-        readShapeFromConsole();
-    }
-
-    private void readShapeFromConsole(){
-        shapeView.printMessage("\nPlease enter the Shape in following format \"Circle:red, 10\" -> ");
-        System.out.println(ShapeParser.parse(ShapeInputData.nextLine()));
+        //showData();
+        //showTotalArea();
+        //chooseTypeForShowingTotalArea();
+        //chooseCriteriaForSorting();
     }
 
     private void showData() {
@@ -39,7 +33,7 @@ public class ShapeController implements Runnable {
 
     private void chooseTypeForShowingTotalArea() {
         shapeView.printMessage("\nPlease enter the type of sorting (Rectangle, Triangle, Circle) -> ");
-        String type = ShapeInputData.next();
+        String type = ShapeInputData.input();
         switch (type) {
             case "Rectangle":
             case "Triangle":
@@ -52,7 +46,7 @@ public class ShapeController implements Runnable {
 
     private void chooseCriteriaForSorting() {
         shapeView.printMessage("\nPlease enter the criteria of sorting (area, color) -> ");
-        String criteria = ShapeInputData.next().toLowerCase();
+        String criteria = ShapeInputData.input().toLowerCase();
         switch (criteria) {
             case "area":
                 sortByArea();
