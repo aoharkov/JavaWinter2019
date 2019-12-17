@@ -1,9 +1,9 @@
 package task2.p2.model.repository;
 
 import task2.p2.model.domain.Book;
-import task2.p2.model.utils.BookPublisherComparator;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class BookRepository {
     private Book[] books;
@@ -13,7 +13,13 @@ public class BookRepository {
     }
 
     public void sortByPublisher() {
-        Arrays.sort(books, new BookPublisherComparator());
+        Arrays.sort(books, new Comparator<Book>(){
+                    @Override
+                    public int compare(Book o1, Book o2) {
+                        return o1.getPublisherName().compareTo(o2.getPublisherName());
+                    }
+                }
+            );
     }
 
     public Book[] showBooksOfAuthor(String authorName) {
