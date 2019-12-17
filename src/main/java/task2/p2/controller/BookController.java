@@ -8,9 +8,9 @@ public class BookController implements Runnable {
     private BookService service;
     private BookView view;
 
-    public BookController(BookService service, BookView view) {
-        this.service = service;
-        this.view = view;
+    public BookController() {
+        this.service = new BookService();
+        this.view = new BookView();
     }
 
     @Override
