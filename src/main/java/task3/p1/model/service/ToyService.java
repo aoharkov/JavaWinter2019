@@ -2,6 +2,9 @@ package task3.p1.model.service;
 
 import task3.p1.model.domain.*;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ToyService {
     private Toy[] arrayOfToys;
     public void generateArrayOfType(int length, ToyType type) {
@@ -47,11 +50,36 @@ public class ToyService {
         }
     }
 
-    public String sortByPrice(){
-        return null;
+    public String showArrayOfToys(){
+        return FromArrayOfToysToStringParser.parse(arrayOfToys);
     }
 
-    public String calculateTotalPrice(){
-        return null;
+    private static class FromArrayOfToysToStringParser {
+        static String parse (Toy[] array) {
+            StringBuilder str = new StringBuilder();
+            for (Toy toy :
+                    array) {
+                str.append(toy);
+                str.append('\n');
+            }
+            return str.toString();
+        }
+    }
+
+
+
+    public String sortByPrice(){
+        Toy[] result = Arrays.copyOf(arrayOfToys, arrayOfToys.length);
+        Arrays.sort(result, new Comparator<Toy>() {
+            @Override
+            public int compare(Toy o1, Toy o2) {
+                return o1.getPrice() - o2.getPrice();
+            }
+        });
+        return FromArrayOfToysToStringParser.parse(result);
+    }
+
+    public int calculateTotalPrice(){
+        return 0;
     }
 }
