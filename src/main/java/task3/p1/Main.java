@@ -8,12 +8,6 @@ import task3.p1.model.domain.ToyVehicle;
 
 public class Main {
     public static void main(String[] args) {
-        ToyController toyController = new ToyController();
-        System.out.println(new Toy());
-        System.out.println(new Doll());
-        System.out.println(new ToyVehicle());
-        System.out.println(new ToyVehicle());
-        System.out.println(new Toy());
-        System.out.println(new Puzzle());
+        new ToyController().run();
     }
 }
