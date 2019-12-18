@@ -80,6 +80,11 @@ public class ToyService {
     }
 
     public int calculateTotalPrice(){
-        return 0;
+        int sum = 0;
+        for (Toy toy :
+                arrayOfToys) {
+            sum += toy.getPrice();
+        }
+        return sum;
     }
 }

@@ -12,7 +12,7 @@ public class ToyController implements Runnable{
     public void run() {
         generateArrayOfType();
         sortByPrice();
-        //calculateTotalPrice();
+        calculateTotalPrice();
     }
     private void generateArrayOfType() {
         view.viewData("Generating new dataset");
