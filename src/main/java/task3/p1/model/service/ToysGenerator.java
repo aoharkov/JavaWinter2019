@@ -47,13 +47,13 @@ public class ToysGenerator {
             case BOARDGAME:
                 arrayOfTabletopGames = new BoardGame[length];
                 for (int i = 0; i < length; i++) {
-                    arrayOfTabletopGames[i] = new BoardGame(generateHypeName(i) + " Board Game", 30 + i, i % 4 + 2);
+                    arrayOfTabletopGames[i] = new BoardGame(generateNameForBoardGame(i), 30 + i, i % 4 + 2);
                 }
                 break;
             case CARDGAME:
                 arrayOfTabletopGames = new CardGame[length];
                 for (int i = 0; i < length; i++) {
-                    arrayOfTabletopGames[i] = new CardGame(generateHypeName(i) + " Card Game", 10 + i, i % 4 + 2);
+                    arrayOfTabletopGames[i] = new CardGame(generateNameForCardGame(i), 10 + i, i % 4 + 2);
                 }
                 break;
             default:
@@ -62,21 +62,33 @@ public class ToysGenerator {
         return arrayOfTabletopGames;
     }
 
-    private static String generateHypeName(int hash) {
-        String[] realNames = {"Monopoly", "Scrabble", "Risk", "Catan"};
-        String[] randomWords = {"Space", "Digital", "Underground"};
+    private static String generateHypeName(int hash, String[] realNames, String[] randomWords) {
         StringBuilder name = new StringBuilder();
-        name.append(realNames[hash%realNames.length]);
-        hash /= realNames.length;
-        if (hash > 0) {
-            name.append(" ");
-            name.append(randomWords[hash%randomWords.length]);
-            hash /= randomWords.length;
+        if (hash < realNames.length) {
+            name.append(realNames[hash % realNames.length]);
+            return name.toString();
         }
+        name.append(randomWords[hash % randomWords.length]);
+        hash /= randomWords.length;
+        name.append(" ");
+        name.append(realNames[hash % realNames.length]);
+        hash /= realNames.length;
         if (hash > 0) {
             name.append(" ");
             name.append(hash + 1);
         }
         return name.toString();
+    }
+
+    private static String generateNameForBoardGame(int hash) {
+        String[] realNames = {"Scrabble", "Monopoly", "Risk", "Catan"};
+        String[] randomWords = {"Space", "Digital", "Underground"};
+        return generateHypeName(hash, realNames, randomWords);
+    }
+
+    private static String generateNameForCardGame(int hash) {
+        String[] realNames = {"Poker", "Blackjack"};
+        String[] randomWords = {"Space", "Digital", "Underground"};
+        return generateHypeName(hash, realNames, randomWords);
     }
 }

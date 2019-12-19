@@ -21,6 +21,7 @@ public class ToyController implements Runnable{
         demo3();
         demo4();
         demo5();
+        demo6();
     }
 
     private void runStandardOperations() {
@@ -65,6 +66,13 @@ public class ToyController implements Runnable{
                 new CardGame("Solitaire", 6, 1),
                 new BoardGame("Battleship", 10, 2),
                 new CardGame("Poker", 28, 6)};
+        playroom = new Playroom<>(array);
+        runStandardOperations();
+    }
+
+    private void demo6() {
+        view.viewData("Example 6: with TabletopGame[] = {12 elements of CARDGAME}");
+        TabletopGame[] array = ToysGenerator.generateArrayOfTabletopGames(12, TabletopGameType.CARDGAME);
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
