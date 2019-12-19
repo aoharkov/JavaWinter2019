@@ -58,7 +58,7 @@ public abstract class PlasticToy implements ToyItem {
     public String toString() {
         return getClass().getSimpleName() +
                 ": id = " + id +
-                ", name = '" + name +
+                ", name = " + name +
                 ", price = " + price;
     }
 }

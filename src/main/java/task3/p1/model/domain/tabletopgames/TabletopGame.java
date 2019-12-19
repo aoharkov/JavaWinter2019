@@ -37,7 +37,7 @@ public abstract class TabletopGame implements ToyItem {
     @Override
     public String toString() {
         return getClass().getSimpleName() +
-                ", name = '" + name +
+                ", name = " + name +
                 ", price = " + price;
     }
 }
