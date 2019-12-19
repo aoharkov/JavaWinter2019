@@ -1,6 +1,6 @@
 package task3.p1.controller;
 
-import task3.p1.model.domain.ToyType;
+import task3.p1.model.domain.PlasticToyType;
 import task3.p1.model.service.ToyService;
 import task3.p1.view.ToyView;
 
@@ -16,7 +16,7 @@ public class ToyController implements Runnable{
     }
     private void generateArrayOfType() {
         view.viewData("Generating new dataset");
-        service.generateArrayOfType(6, ToyType.TOYCAR);
+        service.generateArrayOfType(6, PlasticToyType.TOYCAR);
         view.viewData(service.showArrayOfToys());
     }
 

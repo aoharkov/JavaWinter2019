@@ -1,6 +1,8 @@
-package task3.p1.model.domain;
+package task3.p1.model.domain.plastictoys;
 
-public class Toy {
+import task3.p1.model.domain.ToyItem;
+
+public abstract class PlasticToy implements ToyItem {
     private static int counter = 0;
     private static int toyCounter = 0;
 
@@ -8,7 +10,7 @@ public class Toy {
     private String name;
     private int price;
 
-    public Toy() {
+    PlasticToy() {
         counter++;
         incToyCounter();
         this.id = counter;
@@ -32,18 +34,22 @@ public class Toy {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public int getPrice() {
         return price;
     }
 
+    @Override
     public void setPrice(int price) {
         this.price = price;
     }
@@ -52,7 +58,7 @@ public class Toy {
     public String toString() {
         return getClass().getSimpleName() +
                 ": id = " + id +
-                ", name = '" + name + '\'' +
+                ", name = '" + name +
                 ", price = " + price;
     }
 }

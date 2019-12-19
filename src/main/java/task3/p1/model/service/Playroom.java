@@ -1,11 +1,11 @@
 package task3.p1.model.service;
 
-import task3.p1.model.domain.Toy;
+import task3.p1.model.domain.plastictoys.PlasticToy;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Playroom<T extends Toy> {
+public class Playroom<T extends PlasticToy> {
     public T[] sortByPrice(T[] array) {
         T[] result = Arrays.copyOf(array, array.length);
         Arrays.sort(result, new Comparator<T>() {

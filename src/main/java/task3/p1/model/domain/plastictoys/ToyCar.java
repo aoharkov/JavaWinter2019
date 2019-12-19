@@ -1,6 +1,6 @@
-package task3.p1.model.domain;
+package task3.p1.model.domain.plastictoys;
 
-public class ToyCar extends  ToyVehicle {
+public class ToyCar extends ToyVehicle {
     private static int toyCarCounter = 0;
 
     @Override
