@@ -30,6 +30,7 @@ public class ToyController implements Runnable{
         showArray();
         sortByPrice();
         calculateTotalPrice();
+        filterWithinRangeByPrices();
         view.viewData("-----------------");
     }
 
@@ -101,5 +102,7 @@ public class ToyController implements Runnable{
         int min = Integer.parseInt(ToyInputData.next());
         int max = Integer.parseInt(ToyInputData.next());
         ToyItem[] filtered = playroom.filterWithinRangeByPrices(min, max);
+        Playroom<?> filteredPlayroom = new Playroom<>(filtered);
+        view.viewData(filteredPlayroom.parse());
     }
 }
