@@ -2,12 +2,14 @@ package task3.p1.controller;
 
 import task3.p1.model.domain.PlasticToyType;
 import task3.p1.model.domain.TabletopGameType;
+import task3.p1.model.domain.ToyItem;
 import task3.p1.model.domain.plastictoys.*;
 import task3.p1.model.domain.tabletopgames.BoardGame;
 import task3.p1.model.domain.tabletopgames.CardGame;
 import task3.p1.model.domain.tabletopgames.TabletopGame;
 import task3.p1.model.service.Playroom;
 import task3.p1.model.service.ToysGenerator;
+import task3.p1.view.ToyInputData;
 import task3.p1.view.ToyView;
 
 public class ToyController implements Runnable{
@@ -91,5 +93,13 @@ public class ToyController implements Runnable{
     private void calculateTotalPrice(){
         view.viewData("Calculating total price");
         view.viewData(Integer.toString(playroom.calculateTotalPrice()));
+    }
+
+    private void filterWithinRangeByPrices(){
+        view.viewData("Filtering within range by prices");
+        view.viewData("Please enter the range: min max");
+        int min = Integer.parseInt(ToyInputData.next());
+        int max = Integer.parseInt(ToyInputData.next());
+        ToyItem[] filtered = playroom.filterWithinRangeByPrices(min, max);
     }
 }

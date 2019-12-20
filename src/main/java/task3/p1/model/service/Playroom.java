@@ -30,6 +30,27 @@ public class Playroom<T extends ToyItem> {
         return sum;
     }
 
+    public T[] filterWithinRangeByPrices(int start, int end) {
+        boolean[] flag = new boolean[array.length];
+        int filteredLength = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].getPrice() >= start && array[i].getPrice() <= end) {
+                flag[i] = true;
+                filteredLength++;
+            }
+        }
+        T[] filtered = Arrays.copyOf(array, filteredLength);
+        int iFiltered = 0, iArray = 0;
+        while (iFiltered < filteredLength && iArray < array.length) {
+            if (flag[iArray]) {
+                filtered[iFiltered] = array[iArray];
+                iFiltered++;
+            }
+            iArray++;
+        }
+        return filtered;
+    }
+
     public String parse () {
         StringBuilder str = new StringBuilder();
         for (T toy :
