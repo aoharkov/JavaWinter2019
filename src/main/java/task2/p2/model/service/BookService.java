@@ -1,38 +1,20 @@
 package task2.p2.model.service;
 
-import task2.p2.model.repository.BookRepository;
-import task2.p2.model.utils.BookRepositoryGenerator;
+import task2.p2.model.domain.BookField;
+import task2.p2.model.domain.Book;
+import task2.p2.model.domain.QueryType;
+import task2.p2.model.utils.BookArrayGenerator;
 
 public class BookService {
-    private BookRepository bookRepository;
-
-    public BookService() {
-        this.bookRepository = BookRepositoryGenerator.generate(12);
-    }
+    private Book[] books = BookArrayGenerator.generate(12);
 
     public String showBooks() {
-        return bookRepository.toString();
+        return BookArrayParser.parse(books);
     }
 
-    public String showBooksOfAuthor(String authorName) {
-        BookRepository sample = new BookRepository(bookRepository.showBooksOfAuthor(authorName));
-        return sample.toString();
+    public String processQuery(QueryType queryType, BookField bookField, String ... args) {
+        Book[] result = BookQueryProcessor.process(books, queryType, bookField, args);
+        return BookArrayParser.parse(result);
     }
-
-    public String showBooksOfPublisher(String publisherName) {
-        BookRepository sample = new BookRepository(bookRepository.showBooksOfPublisher(publisherName));
-        return sample.toString();
-    }
-
-    public String showBooksOfYearAfter(int year) {
-        BookRepository sample = new BookRepository(bookRepository.showBooksOfYearAfter(year));
-        return sample.toString();
-    }
-
-    public String sortByPublisher() {
-        bookRepository.sortByPublisher();
-        return bookRepository.toString();
-    }
-
 
 }

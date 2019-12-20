@@ -17,19 +17,44 @@ public class Book {
         this.price = price;
     }
 
+    public String getStrByQuery(BookField bookField) {
+        switch (bookField) {
+            case BOOK_NAME:
+                return bookName;
+            case AUTHOR_NAME:
+                return authorName;
+            case PUBLISHER_NAME:
+                return publisherName;
+            case PRICE:
+                return Integer.toString(price);
+            case NUMBER_OF_PAGES:
+                return Integer.toString(numberOfPages);
+            case YEAR_OF_PUBLISHING:
+                return Integer.toString(yearOfPublishing);
+            default:
+                System.out.println("Unknown bookField in getStrByQuery");
+                return null;
+        }
+    }
+
+    public int getIntByQuery(BookField bookField) {
+        switch (bookField) {
+            case YEAR_OF_PUBLISHING:
+                return yearOfPublishing;
+            case NUMBER_OF_PAGES:
+                return numberOfPages;
+            case PRICE:
+                return price;
+            default:
+                System.out.println("Unknown bookField in getIntByQuery");
+                return 0;
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("\"%s\", written by %s. Published by %s in %d.\nConsist of %d pages, with total price of $%d",
                 bookName, authorName, publisherName, yearOfPublishing, numberOfPages, price);
-    }
-
-    public boolean checkByQueryValueOf(String nameOfQuery, String valueOfField) {
-        switch (nameOfQuery) {
-            case "authorName" : return this.authorName.equals(valueOfField);
-            case "publisherName" : return this.publisherName.equals(valueOfField);
-            case "yearAfter" : return this.yearOfPublishing > Integer.parseInt(valueOfField);
-            default:return false;
-        }
     }
 
     public String getBookName() {
