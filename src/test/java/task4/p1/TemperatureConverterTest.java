@@ -13,19 +13,21 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class TemperatureConverterTest {
     private TemperatureConverter converter;
+    private static final double PRECISION = 0.1;
     @Parameterized.Parameter
-    public double parameter;
+    public double degreesCelsius;
     @Parameterized.Parameter(1)
-    public double expected;
+    public double kelvin;
     @Parameterized.Parameter(2)
-    public double expected2;
+    public double degreesFahrenheit;
+
     @Parameterized.Parameters
-    public static Collection data(){
-        return Arrays.asList(new Object[][] {
-            {0.0, 273.2, 32},
-            {-273.2, 0.0, -459.76},
-            {3.0, 276.2, 37.4}
-            });
+    public static Collection data() {
+        return Arrays.asList(new Object[][]{
+                {0.0, 273.2, 32},
+                {-273.2, 0.0, -459.76},
+                {3.0, 276.2, 37.4}
+        });
     }
 
     @Before
@@ -34,18 +36,32 @@ public class TemperatureConverterTest {
     }
 
     @Test
-    public void convertCtoK() {
-        double temperature = converter.convertCtoK(parameter);
-        assertEquals(expected, temperature, 0.05);
+    public void convertFtoC() {
+        assertEquals(degreesCelsius, converter.convertFtoC(degreesFahrenheit), PRECISION);
     }
 
     @Test
     public void convertCtoF() {
-        assertEquals(expected2, converter.convertCtoF(parameter), 0.05);
+        assertEquals(degreesFahrenheit, converter.convertCtoF(degreesCelsius), PRECISION);
+    }
+
+    @Test
+    public void convertCtoK() {
+        assertEquals(kelvin, converter.convertCtoK(degreesCelsius), PRECISION);
     }
 
     @Test
     public void convertKtoC() {
-        assertEquals(parameter, converter.convertCtoK(parameter), 0.05);
+        assertEquals(degreesCelsius, converter.convertKtoC(kelvin), PRECISION);
+    }
+
+    @Test
+    public void convertFtoK() {
+        assertEquals(kelvin, converter.convertFtoK(degreesFahrenheit), PRECISION);
+    }
+
+    @Test
+    public void convertKtoF() {
+        assertEquals(degreesFahrenheit, converter.convertKtoF(kelvin), PRECISION);
     }
 }
