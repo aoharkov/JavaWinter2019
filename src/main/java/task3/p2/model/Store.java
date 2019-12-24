@@ -2,51 +2,53 @@ package task3.p2.model;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Store {
     private String name;
-    private Section[] sections;
+    private Map<String, Section> sections;
 
     public Store(String name) {
         this.name = name;
-        sections = new Section[0];
+        sections = new HashMap<>();
     }
 
     public void openSection(String name, int location) {
-        Section section = new Section(name, location);
-        sections = Arrays.copyOf(sections, sections.length + 1);
-        sections[sections.length - 1] = section;
+        if (!sections.containsKey(name)) {
+            Section section = new Section(name, location);
+            sections.put(name, section);
+        } else {
+            System.out.println("Exception: such name is taken by another section of the store");
+        }
     }
 
-    public void moveFromToSection(Section sectionFrom, Section sectionTo, ProductPack[] freight) {
-        sectionFrom.take(freight);
-        sectionTo.deliver(freight);
+    public Section getSectionByName(String name) {
+        if (sections.containsKey(name)) {
+            return sections.get(name);
+        } else {
+            System.out.println("Exception: there is no section with such name as " + name);
+            return null;
+        }
     }
 
-    public void merge(Section sectionOfPurchaser, Section sectionOfTarget) {
-        sectionOfPurchaser.deliver(sectionOfTarget.getStorage());
+    public void moveFromToSection(String sectionFrom, String sectionTo, ProductPack[] freight) {
+        getSectionByName(sectionFrom).take(freight);
+        getSectionByName(sectionTo).deliver(freight);
+    }
+
+
+    public void merge(String sectionOfPurchaser, String sectionOfTarget) {
+        getSectionByName(sectionOfPurchaser).deliver(getSectionByName(sectionOfTarget).getStorage());
         closeSection(sectionOfTarget);
     }
 
-    public void closeSection(Section section) {
-        if (sections.length > 1) {
-            sections[find(section)] = sections[sections.length - 1];
-            sections = Arrays.copyOf(sections, sections.length - 1);
+    public void closeSection(String name) {
+        if (sections.containsKey(name)) {
+            sections.remove(name);
         } else {
-            sections = new Section[0];
+            System.out.println("Exception: there is no section with such name as " + name);
         }
-    }
-
-    private int find(Section section) {
-        class NameComparator implements Comparator<Section> {
-            @Override
-            public int compare(Section o1, Section o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        }
-        NameComparator comparator = new NameComparator();
-        Arrays.sort(sections, comparator);
-        return Arrays.binarySearch(sections, section, comparator);
     }
 
     public String getName() {
@@ -57,13 +59,18 @@ public class Store {
         this.name = name;
     }
 
-    public Section[] getSections() {
-        return sections;
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder(name);
+        str.append(":\n");
+        for (Section section :
+                sections.values()) {
+            str.append(section);
+            str.append("\n");
+        }
+        return str.toString();
     }
 
-    public void setSections(Section[] sections) {
-        this.sections = sections;
-    }
 
     public class Section {
         private String name;
@@ -73,19 +80,27 @@ public class Store {
         public Section(String name, int location) {
             this.name = name;
             this.location = location;
+            storage = new ProductPack[0];
         }
 
         public void take(ProductPack[] freight) {
             for (ProductPack productPack :
                     freight) {
-                storage[find(productPack)].takeQuantity(productPack.getQuantity());
+                int pos = find(productPack);
+                if (pos > -1) {
+                    storage[find(productPack)].takeQuantity(productPack.getQuantity());
+                }
+
             }
         }
 
         public void deliver(ProductPack[] freight) {
             for (ProductPack productPack :
                     freight) {
-                storage[find(productPack)].addQuantity(productPack.getQuantity());
+                int pos = find(productPack);
+                if (pos > -1) {
+                    storage[find(productPack)].addQuantity(productPack.getQuantity());
+                }
             }
         }
 
