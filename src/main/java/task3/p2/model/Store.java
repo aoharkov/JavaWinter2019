@@ -95,7 +95,7 @@ public class Store {
                     freight) {
                 int pos = find(productPack);
                 if (pos > -1) {
-                    storage[find(productPack)].takeQuantity(productPack.getQuantity());
+                    storage[pos].takeQuantity(productPack.getQuantity());
                 } else {
                     System.out.println("Exception: not enough products left to take");
                 }
@@ -107,7 +107,7 @@ public class Store {
                     freight) {
                 int pos = find(productPack);
                 if (pos > -1) {
-                    storage[find(productPack)].addQuantity(productPack.getQuantity());
+                    storage[pos].addQuantity(productPack.getQuantity());
                 } else {
                     addNewTypeOfProducts(productPack);
                 }
