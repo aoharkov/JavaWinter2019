@@ -89,8 +89,9 @@ public class Store {
                 int pos = find(productPack);
                 if (pos > -1) {
                     storage[find(productPack)].takeQuantity(productPack.getQuantity());
+                } else {
+                    System.out.println("Exception: not enough products left to take");
                 }
-
             }
         }
 
@@ -100,8 +101,15 @@ public class Store {
                 int pos = find(productPack);
                 if (pos > -1) {
                     storage[find(productPack)].addQuantity(productPack.getQuantity());
+                } else {
+                    addNewTypeOfProducts(productPack);
                 }
             }
+        }
+
+        private void addNewTypeOfProducts(ProductPack productPack) {
+            storage = Arrays.copyOf(storage, storage.length + 1);
+            storage[storage.length - 1] = productPack;
         }
 
         private int find(ProductPack productPack) {
