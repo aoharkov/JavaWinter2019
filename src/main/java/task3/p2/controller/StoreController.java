@@ -22,14 +22,61 @@ public class StoreController implements Runnable {
     }
 
     private void demo1() {
-        store = new Store("Metro");
-        store.openSection("Food", 1);
+        openFoodStore();
+        sellFromVegetableSection();
+        moveFromVegetableSection();
+        mergeFoodSections();
+    }
+
+    private void openFoodStore() {
+        view.viewData("openFoodStore:");
+        store = new Store("Food Shop");
+
+        store.openSection("Fruits", 1);
         ProductPack[] fruits = {
                 new ProductPack(new Product("Banana", 25), 8),
                 new ProductPack(new Product("Apple", 15), 20),
                 new ProductPack(new Product("Orange", 35), 10)
         };
-        store.getSectionByName("Food").deliver(fruits);
+        store.getSectionByName("Fruits").deliver(fruits);
+
+        store.openSection("Vegetables", 2);
+        ProductPack[] vegetables = {
+                new ProductPack(new Product("Potato", 12), 60),
+                new ProductPack(new Product("Carrot", 10), 20),
+                new ProductPack(new Product("Tomato", 35), 16)
+        };
+        store.getSectionByName("Vegetables").deliver(vegetables);
+
         view.viewData(store.toString());
+        view.viewData(StoreView.DELIMITER);
+    }
+
+    private void sellFromVegetableSection() {
+        view.viewData("sellFromVegetableSection:");
+        Store.Section section = store.getSectionByName("Vegetables");
+        ProductPack[] cheque = {
+                new ProductPack(new Product("Potato", 12), 10),
+                new ProductPack(new Product("Tomato", 35), 6)};
+        section.take(cheque);
+        view.viewData(store.toString());
+        view.viewData(StoreView.DELIMITER);
+    }
+
+    private void moveFromVegetableSection() {
+        view.viewData("moveFromVegetableSection:");
+        ProductPack[] freight = {new ProductPack(new Product("Tomato", 35), 10)};
+        store.moveFromToSection("Vegetables", "Fruits", freight);
+        view.viewData(store.toString());
+        view.viewData(StoreView.DELIMITER);
+    }
+
+    private void mergeFoodSections() {
+        view.viewData("mergeFoodSections:");
+        Store.Section largerSection = store.getSectionByName("Fruits");
+        largerSection.setName("Food");
+        store.merge("Fruits", "Vegetables");
+        view.viewData(store.toString());
+        view.viewData(StoreView.DELIMITER);
     }
 }
