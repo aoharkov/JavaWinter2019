@@ -2,6 +2,7 @@ package task3.p2.controller;
 
 import task3.p2.model.Product;
 import task3.p2.model.ProductPack;
+import task3.p2.model.SortTypes;
 import task3.p2.model.Store;
 import task3.p2.view.StoreInput;
 import task3.p2.view.StoreView;
@@ -25,6 +26,7 @@ public class StoreController implements Runnable {
         openFoodStore();
         sellFromVegetableSection();
         moveFromVegetableSection();
+        sortDemo();
         mergeFoodSections();
     }
 
@@ -74,8 +76,19 @@ public class StoreController implements Runnable {
     private void mergeFoodSections() {
         view.viewData("mergeFoodSections:");
         Store.Section largerSection = store.getSectionByName("Fruits");
-        largerSection.setName("Food");
         store.merge("Fruits", "Vegetables");
+        view.viewData(store.toString());
+        view.viewData(StoreView.DELIMITER);
+    }
+
+    private void sortDemo(){
+        sortStoreBy(SortTypes.QUANTITY);
+        sortStoreBy(SortTypes.NAME);
+        sortStoreBy(SortTypes.PRICE);
+    }
+    private void sortStoreBy(SortTypes type){
+        view.viewData(String.format("sortWithinSectionDemo by %s:", type));
+        store.sortByQuery(type);
         view.viewData(store.toString());
         view.viewData(StoreView.DELIMITER);
     }

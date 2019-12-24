@@ -24,7 +24,7 @@ public class ProductPack {
 
     @Override
     public String toString() {
-        return quantity + " x " + product.getName();
+        return quantity + " x " + product.getName() + " $" + product.getPrice();
     }
 
     public Product getProduct() {

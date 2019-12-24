@@ -71,6 +71,13 @@ public class Store {
         return str.toString();
     }
 
+    public void sortByQuery(SortTypes sortType) {
+        for (Section section :
+                sections.values()) {
+            section.sortByQuery(sortType);
+        }
+    }
+
 
     public class Section {
         private String name;
@@ -122,6 +129,47 @@ public class Store {
             NameComparator comparator = new NameComparator();
             Arrays.sort(storage, comparator);
             return Arrays.binarySearch(storage, productPack, comparator);
+        }
+
+        public void sortByQuery(SortTypes sortType) {
+            switch (sortType) {
+                case QUANTITY:
+                    sortByQuantity();
+                    break;
+                case PRICE:
+                    sortByPrice();
+                    break;
+                case NAME:
+                    sortByName();
+                    break;
+            }
+        }
+
+        private void sortByQuantity() {
+            Arrays.sort(storage, new Comparator<ProductPack>() {
+                @Override
+                public int compare(ProductPack o1, ProductPack o2) {
+                    return o2.getQuantity() - o1.getQuantity();
+                }
+            });
+        }
+
+        private void sortByPrice() {
+            Arrays.sort(storage, new Comparator<ProductPack>() {
+                @Override
+                public int compare(ProductPack o1, ProductPack o2) {
+                    return o2.getProduct().getPrice() - o1.getProduct().getPrice();
+                }
+            });
+        }
+
+        private void sortByName() {
+            Arrays.sort(storage, new Comparator<ProductPack>() {
+                @Override
+                public int compare(ProductPack o1, ProductPack o2) {
+                    return o1.getProduct().getName().compareTo(o2.getProduct().getName());
+                }
+            });
         }
 
         @Override
