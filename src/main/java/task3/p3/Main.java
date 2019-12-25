@@ -7,6 +7,7 @@ public class Main {
         singleValueDemo();
         allValuesDemo();
     }
+
     private static void singleValueDemo() {
         System.out.println("singleValueDemo:");
         MyEnum myEnum = MyEnum.valueOf("WINTER");
@@ -20,8 +21,7 @@ public class Main {
 
     private static void allValuesDemo() {
         System.out.println("allValuesDemo:");
-        for (MyEnum myEnum :
-                MyEnum.values()) {
+        for (MyEnum myEnum : MyEnum.values()) {
             System.out.print(myEnum + " ");
         }
         System.out.println();

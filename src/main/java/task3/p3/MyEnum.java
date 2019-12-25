@@ -23,8 +23,7 @@ public class MyEnum implements Comparable {
 
     public static MyEnum valueOf(String name) {
         MyEnum result = null;
-        for (MyEnum myEnum :
-                enumArray) {
+        for (MyEnum myEnum : enumArray) {
             if (myEnum.name.equals(name)) {
                 result = myEnum;
                 break;
