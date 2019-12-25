@@ -96,10 +96,24 @@ public class Store {
                 int pos = find(productPack);
                 if (pos > -1) {
                     storage[pos].takeQuantity(productPack.getQuantity());
+                    if (storage[pos].getQuantity() == 0) {
+                        deleteEmptyProductPack(pos);
+                    }
                 } else {
                     System.out.println("Exception: not enough products left to take");
                 }
             }
+        }
+
+        private void deleteEmptyProductPack(int pos) {
+            if (pos == storage.length - 1) {
+                storage = Arrays.copyOf(storage, storage.length - 1);
+            } else {
+
+                if (storage.length - 1 - pos >= 0)
+                    System.arraycopy(storage, pos + 1, storage, pos, storage.length - 1 - pos);
+            }
+
         }
 
         public void deliver(ProductPack[] freight) {
