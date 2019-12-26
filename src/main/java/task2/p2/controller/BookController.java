@@ -56,7 +56,7 @@ public class BookController implements Runnable {
         int year = Integer.parseInt(BookInputData.input());
         view.viewData("Books after " + year + "\n"
                 + service.processQuery(QueryType.FILTER, BookField.YEAR_OF_PUBLISHING,
-                Integer.toString(year), "after" )
+                Integer.toString(year), "after")
                 + "\n");
     }
 
