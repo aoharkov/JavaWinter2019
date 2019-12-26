@@ -13,7 +13,7 @@ public class ElectricGrid {
         this.devices = devices;
     }
 
-    public int getUsedPower() {
+    public int calculateTotalPowerConsumption() {
         int sum = 0;
         for (Powerable device : devices) {
             sum += device.getPower();

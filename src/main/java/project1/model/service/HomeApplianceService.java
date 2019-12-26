@@ -11,8 +11,8 @@ public class HomeApplianceService {
         this.electricGrid = new ElectricGrid(HomeApplianceDataBase.getInMemDataSet());
     }
 
-    public String getUsedPower() {
-        return Integer.toString(electricGrid.getUsedPower());
+    public String calculateTotalPowerConsumption() {
+        return Integer.toString(electricGrid.calculateTotalPowerConsumption());
     }
 
     public String sortByPower() {
