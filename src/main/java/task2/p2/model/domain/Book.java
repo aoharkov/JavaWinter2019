@@ -1,5 +1,7 @@
 package task2.p2.model.domain;
 
+import java.util.Objects;
+
 public class Book {
     private String bookName;
     private String authorName;
@@ -105,4 +107,21 @@ public class Book {
         this.price = price;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return yearOfPublishing == book.yearOfPublishing &&
+                numberOfPages == book.numberOfPages &&
+                price == book.price &&
+                bookName.equals(book.bookName) &&
+                Objects.equals(authorName, book.authorName) &&
+                Objects.equals(publisherName, book.publisherName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookName, authorName, publisherName, yearOfPublishing, numberOfPages, price);
+    }
 }
