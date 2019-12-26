@@ -1,6 +1,5 @@
 package project1.model.repository;
 
-import project1.model.domain.ElectricGrid;
 import project1.model.domain.entity.*;
 
 import java.util.ArrayList;
