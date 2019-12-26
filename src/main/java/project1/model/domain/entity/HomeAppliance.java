@@ -26,4 +26,9 @@ public class HomeAppliance implements Powerable {
     public void setPower(int power) {
         this.power = power;
     }
+
+    @Override
+    public String toString() {
+        return "name =  \"" + name + "\", power = " + power;
+    }
 }
