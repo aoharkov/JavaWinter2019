@@ -2,7 +2,7 @@ package project1.model.domain.entity;
 
 public class HomeAppliance implements Powerable {
     private String name;
-    private int power;
+    private int power; //Typical Consumption Per Hour, in watts
 
     public HomeAppliance(String name, int power) {
         this.name = name;
