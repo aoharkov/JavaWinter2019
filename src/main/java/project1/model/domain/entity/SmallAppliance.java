@@ -1,18 +1,18 @@
 package project1.model.domain.entity;
 
 public class SmallAppliance extends HomeAppliance {
-    private boolean wireless;
+    private int weight;
 
-    public SmallAppliance(String name, int power, boolean wireless) {
+    public SmallAppliance(String name, int power, int weight) {
         super(name, power);
-        this.wireless = wireless;
+        this.weight = weight;
     }
 
-    public boolean isWireless() {
-        return wireless;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setWireless(boolean wireless) {
-        this.wireless = wireless;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

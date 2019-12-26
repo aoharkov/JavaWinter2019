@@ -1,42 +1,42 @@
 package project1.model.domain;
 
-import project1.model.domain.entity.HomeAppliance;
+import project1.model.domain.entity.Powerable;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class ElectricGrid {
-    private List<HomeAppliance> devices;
+    private List<Powerable> devices;
 
-    public ElectricGrid(List<HomeAppliance> devices) {
+    public ElectricGrid(List<Powerable> devices) {
         this.devices = devices;
     }
 
     public int getUsedPower() {
         int sum = 0;
-        for (HomeAppliance device : devices) {
+        for (Powerable device : devices) {
             sum += device.getPower();
         }
         return sum;
     }
 
-    public List<HomeAppliance> sortByPower() {
-        devices.sort(new Comparator<HomeAppliance>() {
+    public List<Powerable> sortByPower() {
+        devices.sort(new Comparator<Powerable>() {
             @Override
-            public int compare(HomeAppliance o1, HomeAppliance o2) {
+            public int compare(Powerable o1, Powerable o2) {
                 return o2.getPower() - o1.getPower();
             }
         });
         return devices;
     }
 
-    public List<HomeAppliance> filterByPower(int from, int to){
+    public List<Powerable> filterByPower(int from, int to) {
         if (from > to) {
             return null;
         }
-        List<HomeAppliance> result = new ArrayList<>();
-        for (HomeAppliance device : devices) {
+        List<Powerable> result = new ArrayList<>();
+        for (Powerable device : devices) {
             int power = device.getPower();
             if (power >= from && power <= to) {
                 result.add(device);
@@ -45,11 +45,11 @@ public class ElectricGrid {
         return result;
     }
 
-    public List<HomeAppliance> getDevices() {
+    public List<Powerable> getDevices() {
         return devices;
     }
 
-    public void setDevices(List<HomeAppliance> devices) {
+    public void setDevices(List<Powerable> devices) {
         this.devices = devices;
     }
 }

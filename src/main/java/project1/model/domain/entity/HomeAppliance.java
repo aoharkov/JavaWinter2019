@@ -17,10 +17,12 @@ public class HomeAppliance implements Powerable {
         this.name = name;
     }
 
+    @Override
     public int getPower() {
         return power;
     }
 
+    @Override
     public void setPower(int power) {
         this.power = power;
     }
