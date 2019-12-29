@@ -22,17 +22,4 @@ public class BookService {
         Book[] result = BookQueryProcessor.process(books, queryType, bookField, args);
         return BookArrayParser.parse(result);
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BookService)) return false;
-        BookService that = (BookService) o;
-        return Arrays.equals(books, that.books);
-    }
-
-    @Override
-    public int hashCode() {
-        return Arrays.hashCode(books);
-    }
 }
