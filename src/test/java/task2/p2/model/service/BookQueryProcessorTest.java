@@ -1,5 +1,6 @@
 package task2.p2.model.service;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,6 +9,7 @@ import task2.p2.model.domain.BookField;
 import task2.p2.model.domain.QueryType;
 import task2.p2.model.utils.BookArrayGenerator;
 import task2.p2.model.utils.BookGenerator;
+import task4.p1.TemperatureConverter;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,7 +18,8 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class BookQueryProcessorTest {
-    private Book[] books = BookArrayGenerator.generate(6);
+    private Book[] books;
+
     @Parameterized.Parameter
     public Book[] expected;
     @Parameterized.Parameter(1)
@@ -26,14 +29,34 @@ public class BookQueryProcessorTest {
     @Parameterized.Parameter(3)
     public String[] args;
 
+    @Before
+    public void setup() {
+        books = BookArrayGenerator.generate(6);
+    }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name= "{index}: {1} ({2})")
     public static Collection data() {
+        Book[] books = BookArrayGenerator.generate(6);
         return Arrays.asList(new Object[][]{
-                {new Book[]{BookGenerator.generate(1), BookGenerator.generate(5)},
-                        QueryType.GET, BookField.AUTHOR_NAME, new String[]{"Author1"}},
-                {new Book[]{BookGenerator.generate(2), BookGenerator.generate(5)},
-                        QueryType.GET, BookField.PUBLISHER_NAME, new String[]{"Publisher2"}}
+                {new Book[]{books[0], books[4]},
+                        QueryType.GET,
+                        BookField.AUTHOR_NAME,
+                        new String[]{"Author1"}},
+                {new Book[]{books[1], books[4]},
+                        QueryType.GET,
+                        BookField.PUBLISHER_NAME,
+                        new String[]{"Publisher2"}},
+                {books, QueryType.SORT_BY, BookField.BOOK_NAME, null},
+                {new Book[]{books[5], books[4], books[3],
+                        books[2], books[1], books[0]},
+                        QueryType.SORT_BY,
+                        BookField.YEAR_OF_PUBLISHING,
+                        null},
+                {new Book[]{books[0], books[3], books[1],
+                        books[4], books[2], books[5]},
+                        QueryType.SORT_BY,
+                        BookField.PUBLISHER_NAME,
+                        null}
         });
     }
 
