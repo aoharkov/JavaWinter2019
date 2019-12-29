@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class BookArrayParserTest {
 
     @Test
-    public void parse() {
+    public void testParse() {
         String expected = "Repository consist of 0 books.\n";
         assertEquals(expected, BookArrayParser.parse(new Book[0]));
     }

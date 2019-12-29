@@ -17,14 +17,14 @@ public class BookServiceTest {
     }
 
     @Test
-    public void showBooks() {
+    public void testShowBooks() {
         Book[] books = BookArrayGenerator.generate(12);
         String expected = BookArrayParser.parse(books);
-        assertEquals(expected, BookArrayParser.parse(books));
+        assertEquals(expected, service.showBooks());
     }
 
     @Test
-    public void processQuery() {
+    public void testProcessQuery() {
         Book[] expected = new Book[3];
         expected[0] = BookGenerator.generate(1);
         expected[1] = BookGenerator.generate(5);
@@ -32,4 +32,5 @@ public class BookServiceTest {
         assertEquals(BookArrayParser.parse(expected),
                 service.processQuery(QueryType.GET, BookField.AUTHOR_NAME, "Author1"));
     }
+
 }

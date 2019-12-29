@@ -65,7 +65,7 @@ public class BookQueryProcessorTest {
     }
 
     @Test
-    public void process() {
+    public void testProcess() {
         assertArrayEquals(expected,
                 BookQueryProcessor.process(
                         books, queryType,
