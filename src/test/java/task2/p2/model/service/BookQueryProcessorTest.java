@@ -56,7 +56,11 @@ public class BookQueryProcessorTest {
                         books[4], books[2], books[5]},
                         QueryType.SORT_BY,
                         BookField.PUBLISHER_NAME,
-                        null}
+                        null},
+                {new Book[]{books[0], books[1]},
+                        QueryType.FILTER,
+                        BookField.YEAR_OF_PUBLISHING,
+                        new String[]{"1997", "after"}}
         });
     }
 
