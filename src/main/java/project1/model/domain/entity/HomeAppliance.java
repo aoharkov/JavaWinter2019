@@ -1,5 +1,7 @@
 package project1.model.domain.entity;
 
+import java.util.Objects;
+
 public class HomeAppliance implements Powerable {
     private String name;
     private int power; //Typical Consumption Per Hour, in watts
@@ -30,5 +32,19 @@ public class HomeAppliance implements Powerable {
     @Override
     public String toString() {
         return "name =  \"" + name + "\", power = " + power;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HomeAppliance)) return false;
+        HomeAppliance that = (HomeAppliance) o;
+        return power == that.power &&
+                name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, power);
     }
 }
