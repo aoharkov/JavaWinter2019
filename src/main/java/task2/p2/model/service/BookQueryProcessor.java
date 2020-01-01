@@ -6,6 +6,8 @@ import task2.p2.model.domain.QueryType;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 class BookQueryProcessor {
     static Book[] process(Book[] books, QueryType queryType, BookField bookField, String... args) {
@@ -42,23 +44,13 @@ class BookQueryProcessor {
 
 
     private static Book[] getByQuery(QueryType queryType, Book[] books, BookField bookField, String... args) {
-        boolean[] matched = new boolean[books.length];
-        int counter = 0;
-        for (int i = 0; i < books.length; i++) {
-            if (match(queryType, books[i], bookField, args)) {
-                matched[i] = true;
-                counter++;
+        List<Book> sample = new LinkedList<>();
+        for (Book book : books) {
+            if (match(queryType, book, bookField, args)) {
+                sample.add(book);
             }
         }
-        Book[] sample = new Book[counter];
-        counter = 0;
-        for (int i = 0; i < books.length; i++) {
-            if (matched[i]) {
-                sample[counter] = books[i];
-                counter++;
-            }
-        }
-        return sample;
+        return sample.toArray(new Book[sample.size()]);
     }
 
     private static Book[] sortByQuery(Book[] books, BookField bookField, String... args) {
