@@ -1,8 +1,24 @@
 package project1.model.domain.entity;
 
+/**
+ * Major appliances differ from small appliances because they are bigger and not portable.
+ *
+ * Examples include refrigerator, kitchen stove, dishwasher, and washing machine.
+ *
+ * @see <a href="https://en.wikipedia.org/wiki/Major_appliance">Corresponding article in the English wikipedia</a>
+ */
 public class MajorAppliance extends HomeAppliance {
+    /**
+     * Height, in millimeters.
+     */
     private int height;
+    /**
+     * Width, in millimeters.
+     */
     private int width;
+    /**
+     * Length, in millimeters.
+     */
     private int length;
 
     public MajorAppliance(String name, int power, int height, int width, int length) {

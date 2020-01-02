@@ -2,9 +2,25 @@ package project1.model.domain.entity;
 
 import java.util.Objects;
 
+/**
+ * Home appliances, also known as domestic appliances,
+ * are electrical machines that help in household functions such as
+ * cooking, cleaning and food preservation.
+ * <p>
+ * They may be divided into the three classifications:
+ * small appliances, major appliances, and consumer electronics.
+ *
+ * @see <a href="https://en.wikipedia.org/wiki/Home_appliance">Corresponding article in the English wikipedia</a>
+ */
 public class HomeAppliance implements Powerable {
+    /**
+     * Full name of device
+     */
     private String name;
-    private int power; //Typical Consumption Per Hour, in watts
+    /**
+     * Typical consumption of power per hour, in watts.
+     */
+    private int power;
 
     public HomeAppliance(String name, int power) {
         this.name = name;
