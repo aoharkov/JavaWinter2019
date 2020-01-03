@@ -1,6 +1,6 @@
 package task3.p3;
 
-public class Main {
+public class MyEnumMain {
     public static void main(String[] args) {
         String[] seasonNames = {"SPRING", "SUMMER", "AUTUMN", "WINTER"};
         MyEnum.createMyEnum(seasonNames);

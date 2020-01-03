@@ -2,7 +2,7 @@ package practice.enums;
 
 import java.util.Scanner;
 
-public class Main {
+public class EnumsMain {
     public static void main(String[] args) {
         for (DaysOfWeek day :
                 DaysOfWeek.values()) {
