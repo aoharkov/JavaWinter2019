@@ -3,11 +3,11 @@ package task5.p1.view;
 import java.util.Scanner;
 
 public class LogEntryInput {
-    private static Scanner scanner = new Scanner(System.in);
-    public static String next() {
+    private Scanner scanner = new Scanner(System.in);
+    public String next() {
         return scanner.next();
     }
-    public static String nextLine() {
+    public String nextLine() {
         return scanner.nextLine();
     }
 }

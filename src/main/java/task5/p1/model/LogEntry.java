@@ -1,4 +1,4 @@
-package task5.p1.model.domain;
+package task5.p1.model;
 
 import java.util.Objects;
 
