@@ -47,7 +47,7 @@ public class HomeAppliance implements Powerable {
 
     @Override
     public String toString() {
-        return "name = \"" + name + "\", power = " + power;
+        return String.format("%s, %d W", name, power);
     }
 
     @Override

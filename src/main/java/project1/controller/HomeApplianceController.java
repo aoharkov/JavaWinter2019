@@ -20,6 +20,12 @@ public class HomeApplianceController implements Runnable {
 
     @Override
     public void run() {
+        demo();
+        lang = HomeApplianceViewLang.UKR;
+        demo();
+    }
+
+    private void demo() {
         view.viewData(lang.getTotalEnergyMessage() + service.calculateTotalPowerConsumption());
         view.viewData(lang.getSortedResultMessage() + service.sortByPower());
         customFilterByPower();

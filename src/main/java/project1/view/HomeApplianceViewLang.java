@@ -6,7 +6,13 @@ public enum HomeApplianceViewLang {
             "Home appliance sorted by energy consumption:\n",
             "Please enter the beginning of the range:",
             "Please enter the end of the range:",
-            "Home appliance with energy consumption in range:\n");
+            "Home appliance with energy consumption in range:\n"),
+    UKR(
+            "Загальне споживання електроенергії = ",
+            "Побутові прилади відсортовані за споживанням електроенергії:\n",
+            "Будь ласка, введіть початок діапазону:",
+            "Будь ласка, введіть кінець діапазону:",
+            "Побутові прилади із споживанням електроенергії у заданому діапазоні:\n");
 
     private String totalEnergyMessage;
     private String sortedResultMessage;
