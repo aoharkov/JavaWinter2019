@@ -2,6 +2,7 @@ package project1.model.utils;
 
 import project1.model.domain.entity.HomeAppliance;
 import project1.model.domain.entity.Powerable;
+import project1.view.HomeApplianceViewLang;
 
 import java.util.List;
 

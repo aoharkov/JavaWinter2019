@@ -2,32 +2,43 @@ package project1.controller;
 
 import project1.model.service.HomeApplianceService;
 import project1.view.HomeApplianceInput;
-import project1.view.HomeApplienceView;
+import project1.view.HomeApplianceView;
+import project1.view.HomeApplianceViewLang;
 
 public class HomeApplianceController implements Runnable {
     private HomeApplianceService service;
-    private HomeApplienceView view;
+    private HomeApplianceView view;
     private HomeApplianceInput input;
+    private HomeApplianceViewLang lang;
 
     public HomeApplianceController() {
         this.service = new HomeApplianceService();
-        this.view = new HomeApplienceView();
+        this.view = new HomeApplianceView();
         this.input = new HomeApplianceInput();
+        this.lang = HomeApplianceViewLang.ENG;
     }
 
     @Override
     public void run() {
-        view.viewData("Total energy consumption " + service.calculateTotalPowerConsumption());
-        view.viewData("Home appliance sorted by energy consumption\n" + service.sortByPower());
+        view.viewData(lang.getTotalEnergyMessage() + service.calculateTotalPowerConsumption());
+        view.viewData(lang.getSortedResultMessage() + service.sortByPower());
         customFilterByPower();
     }
 
     private void customFilterByPower() {
-        view.viewData("Please enter the beginning of the range");
+        view.viewData(lang.getRangeBeginningMessage());
         int beginning = input.nextInt();
-        view.viewData("Please enter the end of the range");
+        view.viewData(lang.getRangeEndMessage());
         int end = input.nextInt();
-        view.viewData("Home appliance with energy consumption in range\n" + service.filterByPower(beginning, end));
+        view.viewData(lang.getRangeResultMessage() + service.filterByPower(beginning, end));
+    }
+
+    public HomeApplianceViewLang getLang() {
+        return lang;
+    }
+
+    public void setLang(HomeApplianceViewLang lang) {
+        this.lang = lang;
     }
 
 }
