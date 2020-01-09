@@ -15,15 +15,21 @@ public class TranslatorService {
 
     public String translate(String text) {
         StringBuilder result = new StringBuilder();
-        String[] words = text.split("[^a-zA-Z]");
+        String[] words = text.toLowerCase().split("[^a-zA-Z]");
         for (String word : words) {
-            String translation = dictionary.getOrDefault(word, word);
-            if (!translation.equals("") && !translation.equals(" ")) {
-                result.append(translation);
-                result.append(" ");
+            if (!word.equals("") && !word.equals(" ")) {
+                String translation = dictionary.getOrDefault(word, "");
+                if (!translation.equals(" ")) {
+                    if (!translation.equals("")) {
+                        result.append(translation);
+                        result.append(" ");
+                    } else {
+                        result.append("\"").append(word).append("\" ");
+                    }
+                }
             }
         }
-        return result.toString();
+        return result.toString().replaceAll("[\\s]{2,}", " ");
     }
 
 

@@ -17,10 +17,16 @@ public class TranslatorController implements Runnable {
 
     @Override
     public void run() {
-        String testPhrase = "London is the capital of Great Britain.";
-        view.viewData(service.translate(testPhrase));
-        service.addPair("Great", "Великий");
-        view.viewData(service.translate(testPhrase));
-
+        String testText = "My name is Artem. This text I use to test my program. First, I wake up. Then, I get dressed. I walk to school. I do not ride a bike. I do not ride the bus. I like to go to school. It rains. I do not like rain. I eat lunch. I eat a sandwich and an apple.";
+        view.viewData("Initial text:");
+        view.viewData(testText);
+        view.viewData("Translated text:");
+        view.viewData(service.translate(testText));
+        view.viewData("Translated text after we add a few new pairs of translation:");
+        service.addPair("artem", "aртём");
+        service.addPair("a", " ");
+        service.addPair("an", " ");
+        service.addPair("the", " ");
+        view.viewData(service.translate(testText));
     }
 }
