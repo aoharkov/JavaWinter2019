@@ -9,9 +9,7 @@ public class TranslatorDictionaryLoader {
 
     public static Map<String, String> load() {
         Map<String, String> dictionary = new HashMap<>();
-        BufferedReader reader;
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), "windows-1251"));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), "windows-1251"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] translation = line.split("( -- )|,|\\(|\\)|;|!");
@@ -22,7 +20,6 @@ public class TranslatorDictionaryLoader {
                 }
                 line = reader.readLine();
             }
-            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
