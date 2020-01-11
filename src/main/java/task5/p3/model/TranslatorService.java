@@ -1,5 +1,7 @@
 package task5.p3.model;
 
+import java.text.BreakIterator;
+import java.util.Locale;
 import java.util.Map;
 
 public class TranslatorService {
@@ -13,20 +15,20 @@ public class TranslatorService {
         dictionary.put(eng, rus);
     }
 
-    public String translate(String text) {
+    public String translateText(String text) {
         StringBuilder result = new StringBuilder();
-        String[] words = text.toLowerCase().split("[^a-zA-Z]");
+        String[] words = text.toLowerCase().split("(?<=[^a-zA-Z])");
         for (String word : words) {
-            if (!word.equals("") && !word.equals(" ")) {
-                String translation = dictionary.getOrDefault(word, "");
-                if (!translation.equals(" ")) {
-                    if (!translation.equals("")) {
-                        result.append(translation);
-                        result.append(" ");
-                    } else {
-                        result.append("\"").append(word).append("\" ");
-                    }
+            if (word.length() > 1) {
+                String translation = dictionary.getOrDefault(word.substring(0, word.length() - 1), "");
+                if (!translation.equals("")) {
+                    result.append(translation);
+                } else {
+                    result.append("\"").append(word, 0, word.length() - 1).append("\"");
                 }
+                result.append(word.charAt(word.length() - 1));
+            } else {
+                result.append(word);
             }
         }
         return result.toString().replaceAll("[\\s]{2,}", " ");
