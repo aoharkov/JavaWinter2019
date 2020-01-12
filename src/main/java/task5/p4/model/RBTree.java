@@ -1,8 +1,11 @@
 package task5.p4.model;
 
+import java.util.List;
+
 public class RBTree<E extends Comparable<E>> {
     private final Node<E> nil;
     private Node<E> root;
+    private RBTreeTraverser<E> treeTraverser;
 
     {
         nil = new Node<>();
@@ -10,11 +13,23 @@ public class RBTree<E extends Comparable<E>> {
         nil.setRight(nil);
         nil.setLeft(nil);
         root = nil;
+        treeTraverser = new RBTreeTraverser<>(nil);
+    }
+
+    public void generateFromArray(E[] array) {
+        root = nil;
+        for (E element : array) {
+            add(element);
+        }
+    }
+
+    public List<E> traverse(TraverseType type) {
+        return treeTraverser.traverse(root, type);
     }
 
     public void add(E key) {
         Node<E> node = createNode(key);
-        updateParent(node.getParent(), node);
+        linkNodeToTree(node.getParent(), node);
         fixAfterAdd(node);
     }
 
@@ -32,7 +47,7 @@ public class RBTree<E extends Comparable<E>> {
         return new Node<>(key, parent, nil, true);
     }
 
-    private void updateParent(Node<E> parent, Node<E> node) {
+    private void linkNodeToTree(Node<E> parent, Node<E> node) {
         if (parent == nil) {
             root = node;
             node.setIsRed(false);
@@ -46,51 +61,48 @@ public class RBTree<E extends Comparable<E>> {
     }
 
     private void fixAfterAdd(Node<E> node) {
-        Node<E> parent = node.getParent();
-        Node<E> grandParent = parent.getParent();
         while (node.getParent().isRed()) {
-            if (parent == grandParent.getLeft()) {
-                Node<E> uncle = grandParent.getRight();
+            if (node.getParent() == node.getParent().getParent().getLeft()) {
+                Node<E> uncle = node.getParent().getParent().getRight();
                 if (uncle.isRed()) {
-                    changeColors(parent, grandParent);
+                    node.getParent().setIsRed(false);
                     uncle.setIsRed(false);
-                    node = grandParent;
+                    node.getParent().getParent().setIsRed(true);
+                    node = node.getParent().getParent();
                 } else {
                     if (node == node.getParent().getRight()) {
                         node = node.getParent();
                         leftRotate(node);
                     }
-                    changeColors(parent, grandParent);
-                    rightRotate(grandParent);
+                    node.getParent().setIsRed(false);
+                    node.getParent().getParent().setIsRed(true);
+                    rightRotate(node.getParent().getParent());
                 }
             } else {
-                Node<E> uncle = grandParent.getLeft();
+                Node<E> uncle = node.getParent().getParent().getLeft();
                 if (uncle.isRed()) {
-                    changeColors(parent, grandParent);
+                    node.getParent().setIsRed(false);
                     uncle.setIsRed(false);
-                    node = grandParent;
+                    node.getParent().getParent().setIsRed(true);
+                    node = node.getParent().getParent();
                 } else {
                     if (node == node.getParent().getLeft()) {
                         node = node.getParent();
                         rightRotate(node);
                     }
-                    changeColors(parent, grandParent);
-                    leftRotate(grandParent);
+                    node.getParent().setIsRed(false);
+                    node.getParent().getParent().setIsRed(true);
+                    leftRotate(node.getParent().getParent());
                 }
             }
         }
         root.setIsRed(false);
     }
 
-    private void changeColors(Node<E> parent, Node<E> grandParent) {
-        parent.setIsRed(false);
-        grandParent.setIsRed(true);
-    }
-
     private void leftRotate(Node<E> node) {
         Node<E> son = node.getRight();
         leftRotateTransferChildren(node, son);
-        leftRotateUpdateLinkFromParent(node, son);
+        leftRotateUpdateLinkFromGrandParent(node, son);
         son.setParent(node.getParent());
         node.setParent(son);
     }
@@ -98,21 +110,9 @@ public class RBTree<E extends Comparable<E>> {
     private void rightRotate(Node<E> node) {
         Node<E> son = node.getLeft();
         rightRotateTransferChildren(node, son);
-        rightRotateUpdateLinkFromParent(node, son);
+        rightRotateUpdateLinkFromGrandParent(node, son);
         son.setParent(node.getParent());
         node.setParent(son);
-    }
-
-    private void leftRotateUpdateLinkFromParent(Node<E> node, Node<E> son) {
-        if (node.getParent() == nil) {
-            root = son;
-        } else {
-            if (node.getParent().getLeft() == node) {
-                node.getParent().setLeft(son);
-            } else {
-                node.getParent().setRight(son);
-            }
-        }
     }
 
     private void leftRotateTransferChildren(Node<E> node, Node<E> son) {
@@ -123,18 +123,6 @@ public class RBTree<E extends Comparable<E>> {
         son.setLeft(node);
     }
 
-    private void rightRotateUpdateLinkFromParent(Node<E> node, Node<E> son) {
-        if (node.getParent() == nil) {
-            root = son;
-        } else {
-            if (node.getParent().getRight() == node) {
-                node.getParent().setRight(son);
-            } else {
-                node.getParent().setLeft(son);
-            }
-        }
-    }
-
     private void rightRotateTransferChildren(Node<E> node, Node<E> son) {
         node.setLeft(son.getRight());
         if (son.getRight() != nil) {
@@ -143,6 +131,29 @@ public class RBTree<E extends Comparable<E>> {
         son.setRight(node);
     }
 
+    private void leftRotateUpdateLinkFromGrandParent(Node<E> node, Node<E> son) {
+        Node<E> grandparent = node.getParent();
+        if (grandparent == nil) {
+            root = son;
+        } else {
+            if (grandparent.getLeft() == node) {
+                grandparent.setLeft(son);
+            } else {
+                grandparent.setRight(son);
+            }
+        }
+    }
 
-
+    private void rightRotateUpdateLinkFromGrandParent(Node<E> node, Node<E> son) {
+        Node<E> grandparent = node.getParent();
+        if (grandparent == nil) {
+            root = son;
+        } else {
+            if (grandparent.getRight() == node) {
+                grandparent.setRight(son);
+            } else {
+                grandparent.setLeft(son);
+            }
+        }
+    }
 }
