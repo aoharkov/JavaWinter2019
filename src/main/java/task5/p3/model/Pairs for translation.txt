@@ -5403,8 +5403,8 @@ powers -- Полномочия (TR!)
 practicable -- осуществимый
 practical -- практический
 practically -- практический
-practice -- практика
-practiced -- применял, практиковал (от practice)
+oldpractice -- практика
+practiced -- применял, практиковал (от oldpractice)
 practise -- заниматься
 praise -- хвалить
 praised -- хвалил (от praise)

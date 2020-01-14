@@ -1,4 +1,4 @@
-package org.lesson1.tester;
+package practice.lesson1.tester;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

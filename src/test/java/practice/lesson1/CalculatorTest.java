@@ -1,4 +1,4 @@
-package org.lesson1;
+package practice.lesson1;
 
 import org.junit.Before;
 import org.junit.Rule;

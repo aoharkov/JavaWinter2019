@@ -1,4 +1,4 @@
-package org.lesson1;
+package practice.lesson1;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

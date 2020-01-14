@@ -1,4 +1,4 @@
-package org.lesson1;
+package practice.lesson1;
 
 public class Calculator {
 

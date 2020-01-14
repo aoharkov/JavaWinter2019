@@ -1,4 +1,4 @@
-package org.lesson1.tester;
+package practice.lesson1.tester;
 
 import java.lang.reflect.InvocationTargetException;
 
