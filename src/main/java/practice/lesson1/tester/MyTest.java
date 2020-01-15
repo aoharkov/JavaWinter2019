@@ -36,9 +36,9 @@ public class MyTest {
         System.out.println("test2");
     }
 
-    @Test
-    public void test3() {
-        System.out.println("test3");
+    @Test(expectedException = IllegalArgumentException.class, expectedMessage = "operator is null")
+    public void testShouldReturnIllegalArgumentException() {
+        System.out.println("testShouldReturnIllegalArgumentException");
     }
 
     private void noTest() {
