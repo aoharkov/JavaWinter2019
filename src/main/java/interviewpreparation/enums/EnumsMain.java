@@ -1,4 +1,4 @@
-package practice.enums;
+package interviewpreparation.enums;
 
 import java.util.Scanner;
 

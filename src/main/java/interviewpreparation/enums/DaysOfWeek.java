@@ -1,4 +1,4 @@
-package practice.enums;
+package interviewpreparation.enums;
 
 public enum DaysOfWeek {
     SUNDAY, MONDAY(true), TUESDAY, WEDNESDAY(true), THURSDAY, FRIDAY(true), SATURDAY;

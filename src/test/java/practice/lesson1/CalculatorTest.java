@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import practice.lesson1.junit.Calculator;
 
 import static org.junit.Assert.assertEquals;
 
