@@ -20,6 +20,26 @@ public class User {
         this.accounts = isNull(builder.accounts) ? emptyList() : unmodifiableList(builder.accounts);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -50,27 +70,15 @@ public class User {
         return Objects.hash(id, email, password, accounts);
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
     public static class Builder {
         private Integer id;
         private String email;
         private String password;
         private List<Account> accounts;
+
+        Builder() {
+            //Used as starting point in Builder pattern
+        }
 
         public User build() {
             return new User(this);
