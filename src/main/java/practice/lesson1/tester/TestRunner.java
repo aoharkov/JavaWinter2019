@@ -1,10 +1,10 @@
 package practice.lesson1.tester;
 
-import practice.lesson1.tester.annotations.After;
-import practice.lesson1.tester.annotations.AfterAll;
-import practice.lesson1.tester.annotations.Before;
-import practice.lesson1.tester.annotations.BeforeAll;
-import practice.lesson1.tester.annotations.Test;
+import practice.lesson1.tester.annotations.MyAfterAnnotation;
+import practice.lesson1.tester.annotations.MyAfterAllAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAllAnnotation;
+import practice.lesson1.tester.annotations.MyTestAnnotation;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -18,11 +18,11 @@ public class TestRunner {
         Constructor<?> constructor = clazz.getConstructor();
         Object object = constructor.newInstance();
         Method[] methods = clazz.getDeclaredMethods();
-        List<Method> testMethods = getMethodsByAnnotation(Test.class, methods);
-        List<Method> beforeMethods = getMethodsByAnnotation(Before.class, methods);
-        List<Method> afterMethods = getMethodsByAnnotation(After.class, methods);
-        List<Method> beforeAllMethods = getMethodsByAnnotation(BeforeAll.class, methods);
-        List<Method> afterAllMethods = getMethodsByAnnotation(AfterAll.class, methods);
+        List<Method> testMethods = getMethodsByAnnotation(MyTestAnnotation.class, methods);
+        List<Method> beforeMethods = getMethodsByAnnotation(MyBeforeAnnotation.class, methods);
+        List<Method> afterMethods = getMethodsByAnnotation(MyAfterAnnotation.class, methods);
+        List<Method> beforeAllMethods = getMethodsByAnnotation(MyBeforeAllAnnotation.class, methods);
+        List<Method> afterAllMethods = getMethodsByAnnotation(MyAfterAllAnnotation.class, methods);
         for (Method beforeAllMethod : beforeAllMethods) {
             beforeAllMethod.invoke(object);
         }

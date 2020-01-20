@@ -7,5 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface AfterAll {
+public @interface MyTestAnnotation {
+    Class expectedException() default Exception.class;
+    String expectedMessage() default "";
 }

@@ -1,42 +1,42 @@
 package practice.lesson1.tester;
 
-import practice.lesson1.tester.annotations.After;
-import practice.lesson1.tester.annotations.AfterAll;
-import practice.lesson1.tester.annotations.Before;
-import practice.lesson1.tester.annotations.BeforeAll;
-import practice.lesson1.tester.annotations.Test;
+import practice.lesson1.tester.annotations.MyAfterAnnotation;
+import practice.lesson1.tester.annotations.MyAfterAllAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAllAnnotation;
+import practice.lesson1.tester.annotations.MyTestAnnotation;
 
 public class MyTest {
-    @BeforeAll
+    @MyBeforeAllAnnotation
     public void beforeAll1() {
         System.out.println("================\nbeforeAll 1\n================");
     }
-    @Before
+    @MyBeforeAnnotation
     public void before1() {
         System.out.println("before 1");
     }
 
-    @After
+    @MyAfterAnnotation
     public void after1() {
         System.out.println("after 1\n----------------");
     }
 
-    @AfterAll
+    @MyAfterAllAnnotation
     public void afterAll1() {
         System.out.println("afterAll 1\n================");
     }
 
-    @Test
+    @MyTestAnnotation
     public void test1() {
         System.out.println("test1");
     }
 
-    @Test
+    @MyTestAnnotation
     public void test2() {
         System.out.println("test2");
     }
 
-    @Test(expectedException = IllegalArgumentException.class, expectedMessage = "operator is null")
+    @MyTestAnnotation(expectedException = IllegalArgumentException.class, expectedMessage = "operator is null")
     public void testShouldReturnIllegalArgumentException() {
         System.out.println("testShouldReturnIllegalArgumentException");
     }
