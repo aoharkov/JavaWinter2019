@@ -14,7 +14,7 @@ import task4.p1.TemperatureConverter;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 @RunWith(Parameterized.class)
 public class BookQueryProcessorTest {

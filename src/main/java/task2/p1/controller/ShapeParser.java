@@ -1,6 +1,10 @@
 package task2.p1.controller;
 
-import task2.p1.model.entity.*;
+import task2.p1.model.entity.Circle;
+import task2.p1.model.entity.Rectangle;
+import task2.p1.model.entity.Shape;
+import task2.p1.model.entity.ShapeType;
+import task2.p1.model.entity.Triangle;
 
 public class ShapeParser {
     public static Shape parse(String shape) {

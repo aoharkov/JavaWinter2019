@@ -7,7 +7,7 @@ import task2.p2.model.domain.QueryType;
 import task2.p2.model.utils.BookArrayGenerator;
 import task2.p2.model.utils.BookGenerator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class BookServiceTest {
     private BookService service;

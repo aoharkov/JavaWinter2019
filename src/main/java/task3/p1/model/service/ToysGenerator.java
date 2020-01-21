@@ -2,12 +2,17 @@ package task3.p1.model.service;
 
 import task3.p1.model.domain.PlasticToyType;
 import task3.p1.model.domain.TabletopGameType;
-import task3.p1.model.domain.plastictoys.*;
+import task3.p1.model.domain.plastictoys.Doll;
+import task3.p1.model.domain.plastictoys.PlasticToy;
+import task3.p1.model.domain.plastictoys.Puzzle;
+import task3.p1.model.domain.plastictoys.ToyBoat;
+import task3.p1.model.domain.plastictoys.ToyCar;
 import task3.p1.model.domain.tabletopgames.BoardGame;
 import task3.p1.model.domain.tabletopgames.CardGame;
 import task3.p1.model.domain.tabletopgames.TabletopGame;
 
 public class ToysGenerator {
+
     public static PlasticToy[] generateArrayOfPlasticToys(int length, PlasticToyType type) {
         PlasticToy[] arrayOfPlasticToys = null;
         switch (type) {

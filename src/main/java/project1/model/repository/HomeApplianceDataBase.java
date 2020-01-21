@@ -1,11 +1,16 @@
 package project1.model.repository;
 
-import project1.model.domain.entity.*;
+import project1.model.domain.entity.ConsumerElectronics;
+import project1.model.domain.entity.HomeAppliance;
+import project1.model.domain.entity.MajorAppliance;
+import project1.model.domain.entity.Powerable;
+import project1.model.domain.entity.SmallAppliance;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeApplianceDataBase {
+
     public static List<Powerable> getInMemDataSet() {
         List<Powerable> result = new ArrayList<>();
         result.add(new MajorAppliance("Refrigerator", 1000, 200, 60, 55));

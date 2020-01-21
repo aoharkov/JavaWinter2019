@@ -3,7 +3,7 @@ package practice.com.bank.utility;
 import java.util.List;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static practice.com.bank.utility.CollectionUtility.nullSafeListInitialize;
 
 public class CollectionUtilityTest {

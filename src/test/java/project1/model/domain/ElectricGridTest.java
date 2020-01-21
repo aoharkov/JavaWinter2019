@@ -2,12 +2,18 @@ package project1.model.domain;
 
 import org.junit.Before;
 import org.junit.Test;
-import project1.model.domain.entity.*;
+import project1.model.domain.entity.ConsumerElectronics;
+import project1.model.domain.entity.HomeAppliance;
+import project1.model.domain.entity.MajorAppliance;
+import project1.model.domain.entity.Powerable;
+import project1.model.domain.entity.SmallAppliance;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 
 public class ElectricGridTest {
     private ElectricGrid electricGrid;

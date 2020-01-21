@@ -3,7 +3,7 @@ package task2.p2.model.utils;
 import org.junit.Test;
 import task2.p2.model.domain.Book;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 public class BookArrayGeneratorTest {
 
