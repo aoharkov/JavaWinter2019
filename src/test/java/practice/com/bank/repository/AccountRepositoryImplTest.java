@@ -6,9 +6,10 @@ import org.junit.Test;
 import practice.com.bank.domain.Account;
 import practice.com.bank.domain.User;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 public class AccountRepositoryImplTest {
     private static User[] users;
@@ -54,12 +55,12 @@ public class AccountRepositoryImplTest {
 
     @Test
     public void findByIdShouldReturnAccount() {
-        assertEquals(accountsSizeOf3[0], repository.findById(1));
+        assertEquals(Optional.of(accountsSizeOf3[0]), repository.findById(1));
     }
 
     @Test
-    public void findByIdShouldReturnNullIfEmpty() {
-        assertNull(new AccountRepositoryImpl().findById(1));
+    public void findByIdShouldReturnOptionalEmptyIfEmpty() {
+        assertEquals(Optional.empty(), new AccountRepositoryImpl().findById(1));
     }
 
     @Test
@@ -70,7 +71,7 @@ public class AccountRepositoryImplTest {
                 .withUser(users[0])
                 .build();
         repository.update(updated);
-        assertEquals(updated, repository.findById(1));
+        assertEquals(Optional.of(updated), repository.findById(1));
     }
 
     @Test

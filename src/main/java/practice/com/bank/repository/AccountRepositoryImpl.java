@@ -22,8 +22,11 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Optional<Account> findById(Integer id) {
-        return Optional.empty();
-        //return accountIdToAccount.getOrDefault(id, null);
+        Account account = accountIdToAccount.getOrDefault(id, null);
+        if (account == null) {
+            return Optional.empty();
+        }
+        return Optional.of(account);
     }
 
     @Override
