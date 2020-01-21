@@ -1,11 +1,12 @@
 package practice.com.bank.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudRepository<E> {
     void save(E entity);
 
-    E findById(Integer id);
+    Optional<E> findById(Integer id);
 
     List<E> findAll();
 

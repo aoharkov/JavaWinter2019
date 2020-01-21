@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class AccountRepositoryImpl implements AccountRepository {
     private final Map<Integer, Account> accountIdToAccount;
@@ -20,8 +21,9 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public Account findById(Integer id) {
-        return accountIdToAccount.getOrDefault(id, null);
+    public Optional<Account> findById(Integer id) {
+        return Optional.empty();
+        //return accountIdToAccount.getOrDefault(id, null);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package practice.lesson2;
+package practice.lesson2.useaassigleton;
 
 //Provided class, which content we cannot change
 public class A {

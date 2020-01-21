@@ -1,4 +1,4 @@
-package practice.lesson2;
+package practice.lesson2.useaassigleton;
 
 import static java.util.Objects.isNull;
 
@@ -6,7 +6,6 @@ import static java.util.Objects.isNull;
 public final class B {
     private String description;
     private final A a;
-
 
     public B(String description, A a) {
         this.description = description;

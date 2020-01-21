@@ -24,7 +24,7 @@ public class TestRunner {
         List<Method> beforeAllMethods = getMethodsByAnnotation(MyBeforeAllAnnotation.class, methods);
         List<Method> afterAllMethods = getMethodsByAnnotation(MyAfterAllAnnotation.class, methods);
         for (Method beforeAllMethod : beforeAllMethods) {
-            beforeAllMethod.invoke(object);
+            beforeAllMethod.invoke(null);
         }
         for (Method testMethod : testMethods) {
             for (Method beforeMethod : beforeMethods) {
@@ -36,7 +36,7 @@ public class TestRunner {
             }
         }
         for (Method afterAllMethod : afterAllMethods) {
-            afterAllMethod.invoke(object);
+            afterAllMethod.invoke(null);
         }
     }
 
