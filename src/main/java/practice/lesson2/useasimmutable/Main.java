@@ -1,4 +1,4 @@
-package practice.lesson2.useaassigleton;
+package practice.lesson2.useasimmutable;
 
 public class Main {
     public static void main(String[] args) {

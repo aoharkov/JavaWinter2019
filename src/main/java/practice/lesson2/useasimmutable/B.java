@@ -1,13 +1,13 @@
-package practice.lesson2.useaassigleton;
+package practice.lesson2.useasimmutable;
 
 import static java.util.Objects.isNull;
 
-//We wants to have to use a as singleton
+//We want to use an instance of A as immutable
 public final class B {
     private String description;
     private final A a;
 
-    public B(String description, A a) {
+    B(String description, A a) {
         this.description = description;
         this.a = copyA(a);
     }

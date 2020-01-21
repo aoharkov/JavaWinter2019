@@ -1,4 +1,4 @@
-package practice.lesson2.useaassigleton;
+package practice.lesson2.useasimmutable;
 
 //Provided class, which content we cannot change
 public class A {
