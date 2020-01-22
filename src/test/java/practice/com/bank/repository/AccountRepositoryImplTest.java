@@ -72,6 +72,7 @@ public class AccountRepositoryImplTest {
                 .build();
         repository.update(updated);
         assertEquals(Optional.of(updated), repository.findById(1));
+
     }
 
     @Test
