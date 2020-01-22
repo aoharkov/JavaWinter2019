@@ -9,7 +9,6 @@ public class QuickSort implements Sorting {
 
     private int partition(int[] array, int begin, int end) {
         int pivot = end;
-
         int counter = begin;
         for (int i = begin; i < end; i++) {
             if (array[i] < array[pivot]) {
@@ -22,7 +21,6 @@ public class QuickSort implements Sorting {
         int temp = array[pivot];
         array[pivot] = array[counter];
         array[counter] = temp;
-
         return counter;
     }
 
