@@ -1,6 +1,8 @@
 package practice.lesson3.sorting;
 
 public class BubbleSort implements Sorting {
+
+    @Override
     public void sort(int[] array) {
         boolean sorted = false;
         int temp;

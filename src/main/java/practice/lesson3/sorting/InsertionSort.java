@@ -1,6 +1,8 @@
 package practice.lesson3.sorting;
 
 public class InsertionSort implements Sorting {
+
+    @Override
     public void sort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int current = array[i];

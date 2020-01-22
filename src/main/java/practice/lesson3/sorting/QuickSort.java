@@ -1,6 +1,8 @@
 package practice.lesson3.sorting;
 
 public class QuickSort implements Sorting {
+
+    @Override
     public void sort(int[] array) {
         quickSort(array, 0, array.length - 1);
     }
