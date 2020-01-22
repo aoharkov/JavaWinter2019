@@ -6,6 +6,7 @@ import practice.com.bank.repository.UserRepository;
 import practice.com.bank.service.PasswordEncryptor;
 import practice.com.bank.service.UserService;
 import practice.com.bank.service.validator.Validator;
+import practice.com.bank.service.validator.ValidatorException;
 
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
@@ -38,8 +39,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
-        userValidator.validate(user);
-        return null;
+        try {
+            userValidator.validate(user);
+        } catch (ValidatorException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
 
