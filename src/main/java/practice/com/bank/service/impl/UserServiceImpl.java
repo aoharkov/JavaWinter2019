@@ -3,20 +3,19 @@ package practice.com.bank.service.impl;
 
 import practice.com.bank.domain.User;
 import practice.com.bank.repository.UserRepository;
-import practice.com.bank.service.PasswordEncriptor;
+import practice.com.bank.service.PasswordEncryptor;
 import practice.com.bank.service.UserService;
-import practice.com.bank.service.validator.UserValidator;
 import practice.com.bank.service.validator.Validator;
 
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private final PasswordEncriptor passwordEncriptor;
+    private final PasswordEncryptor passwordEncryptor;
     private final Validator<User> userValidator;
 
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncriptor passwordEncriptor, Validator<User> userValidator) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncryptor passwordEncryptor, Validator<User> userValidator) {
         this.userRepository = userRepository;
-        this.passwordEncriptor = passwordEncriptor;
+        this.passwordEncryptor = passwordEncryptor;
         this.userValidator = userValidator;
     }
 
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UserService {
                 .orElse(null);
 
         return userPassword != null;*/
-        String encriptedPassword = passwordEncriptor.encript(password);
+        String encriptedPassword = passwordEncryptor.encript(password);
         return userRepository.findByEmail(email)
                 .map(user -> user.getPassword())
                 .filter(userPass -> userPass.equals(encriptedPassword))
