@@ -2,7 +2,7 @@ package practice.lesson3.sorting;
 
 public class QuickSort implements Sorting {
     public void sort(int[] array) {
-        quickSort(array, 0, array.length);
+        quickSort(array, 0, array.length - 1);
     }
 
     private int partition(int[] array, int begin, int end) {
