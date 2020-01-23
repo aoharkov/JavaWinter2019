@@ -1,4 +1,6 @@
-package practice.lesson3.sorting;
+package practice.lesson2.sorting.impl;
+
+import practice.lesson2.sorting.Sorting;
 
 public class InsertionSort implements Sorting {
 

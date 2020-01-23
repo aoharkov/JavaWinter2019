@@ -1,5 +1,7 @@
-package practice.lesson3.sorting;
+package practice.lesson2.sorting;
 
+@FunctionalInterface
 public interface Sorting {
+
     void sort(int[] items);
 }
