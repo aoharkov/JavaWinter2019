@@ -62,7 +62,7 @@ public class Account {
         private User user;
         private Integer money;
 
-        public Builder() {
+        Builder() {
             //Used as starting point in Builder pattern
         }
 
