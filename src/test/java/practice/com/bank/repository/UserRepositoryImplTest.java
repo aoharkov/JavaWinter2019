@@ -4,12 +4,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import practice.com.bank.domain.User;
+import practice.com.bank.repository.impl.UserRepositoryImpl;
 
 import java.util.Optional;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-
 
 public class UserRepositoryImplTest {
     private static User[] usersOfSize4;
