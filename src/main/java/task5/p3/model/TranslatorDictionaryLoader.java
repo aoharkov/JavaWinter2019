@@ -1,5 +1,8 @@
 package task5.p3.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TranslatorDictionaryLoader {
+    private static Logger logger = LogManager.getLogger(TranslatorDictionaryLoader.class);
     private static String path = "D:\\Projects\\JavaWinter2019\\src\\main\\java\\task5\\p3\\model\\Pairs for translation.txt";
 
     public static Map<String, String> load() {
@@ -24,7 +28,7 @@ public class TranslatorDictionaryLoader {
                 line = reader.readLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return dictionary;
     }
