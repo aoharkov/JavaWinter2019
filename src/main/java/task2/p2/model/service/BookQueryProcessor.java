@@ -42,7 +42,6 @@ class BookQueryProcessor {
         return false;
     }
 
-
     private static Book[] getByQuery(QueryType queryType, Book[] books, BookField bookField, String... args) {
         List<Book> sample = new LinkedList<>();
         for (Book book : books) {
@@ -84,5 +83,4 @@ class BookQueryProcessor {
         }
         return result;
     }
-
 }

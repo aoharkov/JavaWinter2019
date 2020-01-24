@@ -8,5 +8,4 @@ public class ShapeView {
     public void printMessage(double totalArea) {
         System.out.print(String.format("%.2f\n", totalArea));
     }
-
 }

@@ -26,5 +26,4 @@ public class MyEnumMain {
         }
         System.out.println();
     }
-
 }

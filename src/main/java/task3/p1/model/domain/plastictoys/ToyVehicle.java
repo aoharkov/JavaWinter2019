@@ -8,5 +8,4 @@ public abstract class ToyVehicle extends PlasticToy {
         return super.toString() +
                 ", remote = " + remote;
     }
-
 }

@@ -24,5 +24,4 @@ public class Circle extends Shape {
         return super.toString() +
                 ", r = " + r;
     }
-
 }

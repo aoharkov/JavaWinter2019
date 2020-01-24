@@ -67,5 +67,4 @@ public class CalculatorTest {
         calculator.calculate(3, null, 2);
 
     }
-
 }

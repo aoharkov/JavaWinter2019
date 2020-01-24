@@ -13,7 +13,6 @@ public abstract class TabletopGame implements ToyItem {
         this.numOfPlayers = numOfPlayers;
     }
 
-
     @Override
     public String getName() {
         return name;

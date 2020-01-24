@@ -14,7 +14,7 @@ public class ShapeService {
         this.repository = new ShapeRepository();
     }
 
-    public String  showData() {
+    public String showData() {
         return repository.toString();
     }
 
@@ -51,6 +51,4 @@ public class ShapeService {
         Arrays.sort(result, comparator);
         return result;
     }
-
-
 }

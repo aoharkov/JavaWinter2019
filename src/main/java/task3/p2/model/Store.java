@@ -37,7 +37,6 @@ public class Store {
         getSectionByName(sectionTo).deliver(freight);
     }
 
-
     public void merge(String sectionOfPurchaser, String sectionOfTarget) {
         getSectionByName(sectionOfPurchaser).deliver(getSectionByName(sectionOfTarget).getStorage());
         closeSection(sectionOfTarget);
@@ -78,7 +77,6 @@ public class Store {
         }
     }
 
-
     public class Section {
         private String name;
         private int location;
@@ -113,7 +111,6 @@ public class Store {
                 if (storage.length - 1 - pos >= 0)
                     System.arraycopy(storage, pos + 1, storage, pos, storage.length - 1 - pos);
             }
-
         }
 
         public void deliver(ProductPack[] freight) {

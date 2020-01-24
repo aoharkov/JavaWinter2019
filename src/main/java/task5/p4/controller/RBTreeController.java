@@ -55,5 +55,4 @@ public class RBTreeController implements Runnable {
         }
         return result.toArray(new Integer[size]);
     }
-
 }

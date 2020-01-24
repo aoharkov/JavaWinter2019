@@ -12,5 +12,4 @@ public class Puzzle extends PlasticToy {
     protected int getToyCounter() {
         return puzzleCounter;
     }
-
 }

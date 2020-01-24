@@ -18,7 +18,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         accountIdToAccount = new HashMap<>();
     }
 
-    //TODO
     @Override
     public Pageable<Account> findAll(int page, int itemsPerPage) {
         long numberOfItemsToSkip = (page - 1) * (long) itemsPerPage;
@@ -70,5 +69,4 @@ public class AccountRepositoryImpl implements AccountRepository {
     public void deleteById(Integer id) {
         accountIdToAccount.remove(id);
     }
-
 }

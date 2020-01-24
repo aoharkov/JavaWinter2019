@@ -19,7 +19,6 @@ public class ProductPack {
         } else {
             System.out.println(String.format("Not enough %s in productPack", this.product.getName()));
         }
-
     }
 
     @Override
@@ -42,5 +41,4 @@ public class ProductPack {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
 }

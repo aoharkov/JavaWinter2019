@@ -46,5 +46,4 @@ public class HomeApplianceController implements Runnable {
     public void setLang(HomeApplianceViewLang lang) {
         this.lang = lang;
     }
-
 }

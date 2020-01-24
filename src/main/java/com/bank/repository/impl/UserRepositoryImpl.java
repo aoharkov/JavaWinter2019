@@ -73,5 +73,4 @@ public class UserRepositoryImpl implements UserRepository {
     public void deleteById(Integer id) {
         userIdToUser.remove(id);
     }
-
 }

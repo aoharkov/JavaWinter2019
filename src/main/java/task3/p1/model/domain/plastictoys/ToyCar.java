@@ -12,5 +12,4 @@ public class ToyCar extends ToyVehicle {
     protected int getToyCounter() {
         return toyCarCounter;
     }
-
 }

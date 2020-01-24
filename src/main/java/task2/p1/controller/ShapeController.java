@@ -80,5 +80,4 @@ public class ShapeController implements Runnable {
         shapeView.printMessage("\nShow sorted by colour:\n");
         shapeView.printMessage(shapeService.sortByColour());
     }
-
 }

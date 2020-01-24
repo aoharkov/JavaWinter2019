@@ -11,5 +11,4 @@ public class CollectionUtilityTest {
         final List<Object> actual = CollectionUtility.nullSafeListInitialize(null);
         assertTrue(actual.isEmpty());
     }
-
 }

@@ -12,6 +12,5 @@ public class B {
         } finally {
             throw new RuntimeException("finally");
         }
-
     }
 }

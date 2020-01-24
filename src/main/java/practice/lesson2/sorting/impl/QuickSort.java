@@ -32,5 +32,4 @@ public class QuickSort implements Sorting {
         quickSort(array, begin, pivot - 1);
         quickSort(array, pivot + 1, end);
     }
-
 }

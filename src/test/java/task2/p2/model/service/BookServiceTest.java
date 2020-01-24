@@ -32,5 +32,4 @@ public class BookServiceTest {
         assertEquals(BookArrayParser.parse(expected),
                 service.processQuery(QueryType.GET, BookField.AUTHOR_NAME, "Author1"));
     }
-
 }

@@ -1,7 +1,5 @@
 package task5.p3.model;
 
-import java.text.BreakIterator;
-import java.util.Locale;
 import java.util.Map;
 
 public class TranslatorService {
@@ -33,6 +31,4 @@ public class TranslatorService {
         }
         return result.toString().replaceAll("[\\s]{2,}", " ");
     }
-
-
 }

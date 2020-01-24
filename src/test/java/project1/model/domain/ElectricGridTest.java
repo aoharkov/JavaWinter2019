@@ -8,7 +8,6 @@ import project1.model.domain.entity.MajorAppliance;
 import project1.model.domain.entity.Powerable;
 import project1.model.domain.entity.SmallAppliance;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

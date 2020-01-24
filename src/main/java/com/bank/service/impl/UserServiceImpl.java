@@ -1,6 +1,5 @@
 package com.bank.service.impl;
 
-
 import com.bank.domain.User;
 import com.bank.repository.UserRepository;
 import com.bank.service.PasswordEncoder;
@@ -10,12 +9,9 @@ import com.bank.service.validator.Validator;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private static final int USER_PER_PAGE = 5;
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncryptor;
     private final Validator<User> userValidator;
-
 
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncryptor, Validator<User> userValidator) {
         this.userRepository = userRepository;
@@ -40,8 +36,6 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("user is already present with such email");
         }
         userRepository.save(user);
-
-        //id?
         return user;
     }
 
@@ -53,6 +47,4 @@ public class UserServiceImpl implements UserService {
         //final Pageable<User> users = userRepository.findAll(new Page(page, USER_PER_PAGE));
         return null;
     }
-
-
 }
