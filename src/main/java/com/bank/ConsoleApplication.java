@@ -5,8 +5,7 @@ import com.bank.service.UserService;
 
 public class ConsoleApplication {
     public static void main(String[] args) {
-        ApplicationInjector injector = ApplicationInjector.getInstance();
-        UserService userService = injector.getUserService();
+        UserService userService = ApplicationInjector.getUserService();
         final boolean password = userService.login("email", "pass");
         System.out.println(password);
     }

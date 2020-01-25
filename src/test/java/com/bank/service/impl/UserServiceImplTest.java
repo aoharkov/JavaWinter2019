@@ -1,7 +1,7 @@
 package com.bank.service.impl;
 
 import com.bank.domain.User;
-import com.bank.repository.UserRepository;
+import com.bank.dao.UserDao;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +37,7 @@ public class UserServiceImplTest {
             .build();
 
     @Mock
-    private UserRepository userRepository;
+    private UserDao userRepository;
     @Mock
     private UserValidator userValidator;
     @Mock

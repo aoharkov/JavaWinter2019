@@ -1,9 +1,9 @@
-package com.bank.repository;
+package com.bank.dao;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface CrudRepository<E> {
+public interface CrudDao<E> {
 
     List<E> findAll();
 

@@ -1,7 +1,7 @@
 package com.bank.service.impl;
 
 import com.bank.domain.User;
-import com.bank.repository.UserRepository;
+import com.bank.dao.UserDao;
 import com.bank.service.PasswordEncoder;
 import com.bank.service.UserService;
 import com.bank.service.validator.Validator;
@@ -9,11 +9,11 @@ import com.bank.service.validator.Validator;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
+    private final UserDao userRepository;
     private final PasswordEncoder passwordEncryptor;
     private final Validator<User> userValidator;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncryptor, Validator<User> userValidator) {
+    public UserServiceImpl(UserDao userRepository, PasswordEncoder passwordEncryptor, Validator<User> userValidator) {
         this.userRepository = userRepository;
         this.passwordEncryptor = passwordEncryptor;
         this.userValidator = userValidator;

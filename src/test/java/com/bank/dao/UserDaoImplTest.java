@@ -1,7 +1,7 @@
-package com.bank.repository;
+package com.bank.dao;
 
 import com.bank.domain.User;
-import com.bank.repository.impl.UserRepositoryImpl;
+import com.bank.dao.impl.UserDaoImpl;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,10 +11,10 @@ import java.util.Optional;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-public class UserRepositoryImplTest {
-    private static User[] usersOfSize4;
+public class UserDaoImplTest {
+    /*private static User[] usersOfSize4;
     private static User[] usersOfSize3;
-    private UserRepository repository;
+    private UserDao repository;
 
     @BeforeClass
     public static void initUsers() {
@@ -24,7 +24,7 @@ public class UserRepositoryImplTest {
 
     @Before
     public void initRepository() {
-        repository = new UserRepositoryImpl();
+        repository = new UserDaoImpl();
         repository.save(usersOfSize4[0]);
         repository.save(usersOfSize4[1]);
         repository.save(usersOfSize4[2]);
@@ -63,7 +63,7 @@ public class UserRepositoryImplTest {
 
     @Test
     public void findByIdShouldReturnOptionalEmptyIfEmpty() {
-        assertEquals(Optional.empty(), new UserRepositoryImpl().findById(1));
+        assertEquals(Optional.empty(), new UserDaoImpl().findById(1));
     }
 
     @Test
@@ -115,5 +115,5 @@ public class UserRepositoryImplTest {
 
     private static void initUsersSizeOf3() {
         usersOfSize3 = new User[]{usersOfSize4[0], usersOfSize4[1], usersOfSize4[2]};
-    }
+    }*/
 }

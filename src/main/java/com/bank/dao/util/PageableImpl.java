@@ -1,6 +1,4 @@
-package com.bank.repository.impl;
-
-import com.bank.repository.Pageable;
+package com.bank.dao.util;
 
 import java.util.List;
 
