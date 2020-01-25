@@ -15,7 +15,7 @@ public class PageableImpl<T> implements Pageable {
         this.maxPage = builder.maxPage;
     }
 
-    public static<T2> Builder builder() {
+    public static <T2> Builder builder() {
         return new Builder();
     }
 

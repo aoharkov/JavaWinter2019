@@ -1,9 +1,9 @@
 package practice.lesson1.tester;
 
-import practice.lesson1.tester.annotations.MyAfterAnnotation;
 import practice.lesson1.tester.annotations.MyAfterAllAnnotation;
-import practice.lesson1.tester.annotations.MyBeforeAnnotation;
+import practice.lesson1.tester.annotations.MyAfterAnnotation;
 import practice.lesson1.tester.annotations.MyBeforeAllAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAnnotation;
 import practice.lesson1.tester.annotations.MyTestAnnotation;
 
 import java.lang.annotation.Annotation;

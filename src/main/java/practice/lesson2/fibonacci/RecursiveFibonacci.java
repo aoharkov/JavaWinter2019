@@ -1,6 +1,6 @@
 package practice.lesson2.fibonacci;
 
-public class RecursiveFibonacci implements Fibonacci{
+public class RecursiveFibonacci implements Fibonacci {
 
     @Override
     public int getNthFibonacciNumber(int n) {

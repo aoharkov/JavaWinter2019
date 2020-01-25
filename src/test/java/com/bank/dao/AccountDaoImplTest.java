@@ -1,17 +1,5 @@
 package com.bank.dao;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import com.bank.domain.Account;
-import com.bank.domain.User;
-import com.bank.dao.impl.AccountDaoImpl;
-
-import java.util.Optional;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-
 public class AccountDaoImplTest {
     /*private static User[] users;
     private static Account[] accountsSizeOf4;

@@ -1,7 +1,9 @@
 package com.bank.service.impl;
 
-import com.bank.domain.User;
 import com.bank.dao.UserDao;
+import com.bank.domain.User;
+import com.bank.service.PasswordEncoder;
+import com.bank.service.validator.UserValidator;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,12 +11,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import com.bank.service.PasswordEncoder;
-import com.bank.service.validator.UserValidator;
 
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;

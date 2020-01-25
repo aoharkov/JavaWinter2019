@@ -2,7 +2,7 @@ package project1.model.domain.entity;
 
 /**
  * Major appliances differ from small appliances because they are bigger and not portable.
- *
+ * <p>
  * Examples include refrigerator, kitchen stove, dishwasher, and washing machine.
  *
  * @see <a href="https://en.wikipedia.org/wiki/Major_appliance">Corresponding article in the English wikipedia</a>

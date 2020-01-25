@@ -1,7 +1,5 @@
 package interviewpreparation;
 
-import java.util.List;
-
 public class Generics {
     public static void main(String[] args) {
         question1();

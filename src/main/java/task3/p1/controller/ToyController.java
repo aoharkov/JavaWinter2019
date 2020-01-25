@@ -16,7 +16,7 @@ import task3.p1.model.service.ToysGenerator;
 import task3.p1.view.ToyInputData;
 import task3.p1.view.ToyView;
 
-public class ToyController implements Runnable{
+public class ToyController implements Runnable {
     private Playroom<?> playroom;
     private ToyView view = new ToyView();
 
@@ -89,18 +89,18 @@ public class ToyController implements Runnable{
         view.viewData(playroom.parse());
     }
 
-    private void sortByPrice(){
+    private void sortByPrice() {
         view.viewData("Sorting by price");
         playroom.sortByPrice();
         view.viewData(playroom.parse());
     }
 
-    private void calculateTotalPrice(){
+    private void calculateTotalPrice() {
         view.viewData("Calculating total price");
         view.viewData(Integer.toString(playroom.calculateTotalPrice()));
     }
 
-    private void filterWithinRangeByPrices(){
+    private void filterWithinRangeByPrices() {
         view.viewData("Filtering within range by prices");
         view.viewData("Please enter the range: min max");
         int min = Integer.parseInt(ToyInputData.next());

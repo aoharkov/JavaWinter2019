@@ -1,7 +1,5 @@
 package practice.lesson3.functionalinterface;
 
-import java.util.function.Function;
-
 public class InterfaceDemo {
     public static void main(String[] args) {
         MyInterface myInterface = new MyInterface() {

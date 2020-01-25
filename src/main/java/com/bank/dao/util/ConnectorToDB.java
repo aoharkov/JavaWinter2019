@@ -13,8 +13,8 @@ public class ConnectorToDB {
     public ConnectorToDB(String fileName) {
         ResourceBundle resource = ResourceBundle.getBundle(fileName);
         this.url = resource.getString("db.url");
-        this.user = resource.getString("db.user");;
-        this.password = resource.getString("db.password");;
+        this.user = resource.getString("db.user");
+        this.password = resource.getString("db.password");
     }
 
     public Connection getConnection() throws SQLException {

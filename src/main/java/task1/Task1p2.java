@@ -47,9 +47,6 @@ public class Task1p2 {
                 }
             }
         }
-        if (sum == num) {
-            return true;
-        }
-        return false;
+        return sum == num;
     }
 }

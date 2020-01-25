@@ -1,7 +1,7 @@
 package task2.p2.model.service;
 
-import task2.p2.model.domain.BookField;
 import task2.p2.model.domain.Book;
+import task2.p2.model.domain.BookField;
 import task2.p2.model.domain.QueryType;
 
 import java.util.Arrays;

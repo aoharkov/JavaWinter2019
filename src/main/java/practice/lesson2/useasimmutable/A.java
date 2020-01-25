@@ -2,7 +2,7 @@ package practice.lesson2.useasimmutable;
 
 //Provided class, which content we cannot change
 public class A {
-    private  int code;
+    private int code;
 
     A(int code) {
         this.code = code;

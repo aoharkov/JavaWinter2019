@@ -1,24 +1,13 @@
 package com.bank.dao.impl;
 
-import com.bank.dao.util.ConnectorToDB;
-import com.bank.dao.util.PageableImpl;
-import com.bank.domain.Account;
 import com.bank.dao.AccountDao;
-import com.bank.dao.util.Pageable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.bank.dao.util.ConnectorToDB;
+import com.bank.domain.Account;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
-public class AccountDaoImpl extends AbstractCrudPageableDaoImpl<Account> implements AccountDao{
+public class AccountDaoImpl extends AbstractCrudPageableDaoImpl<Account> implements AccountDao {
     private static final String FIND_BY_ID_QUERY = "SELECT * FROM accounts WHERE id =?";
     private static final String FIND_ALL_QUERY = "SELECT * FROM accounts";
 

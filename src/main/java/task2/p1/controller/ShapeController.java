@@ -23,7 +23,7 @@ public class ShapeController implements Runnable {
         readShapeFromConsole();
     }
 
-    private void readShapeFromConsole(){
+    private void readShapeFromConsole() {
         shapeView.printMessage("\nPlease enter the Shape in following format: Circle:red, 10 -> ");
         System.out.println(ShapeParser.parse(ShapeInputData.nextLine()));
     }
@@ -45,7 +45,8 @@ public class ShapeController implements Runnable {
             case RECTANGLE:
             case TRIANGLE:
             case CIRCLE:
-                showTotalArea(shapeType.name()); break;
+                showTotalArea(shapeType.name());
+                break;
             default:
                 shapeView.printMessage("\nInvalid type!!!\n");
         }

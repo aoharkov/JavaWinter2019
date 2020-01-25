@@ -1,13 +1,14 @@
 package com.bank.dao.impl;
 
-import com.bank.dao.util.ConnectorToDB;
 import com.bank.dao.CrudDao;
+import com.bank.dao.util.ConnectorToDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
 
     @Override
     public List<E> findAll() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

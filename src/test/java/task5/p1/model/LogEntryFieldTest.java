@@ -18,7 +18,7 @@ public class LogEntryFieldTest {
     @Parameterized.Parameter(2)
     public String str;
 
-    @Parameterized.Parameters(name= "{index}: {2} ({1})")
+    @Parameterized.Parameters(name = "{index}: {2} ({1})")
     public static Collection data() {
         return Arrays.asList(new Object[][]{
                 {LogEntryField.SURNAME, true, "Oharkov"},

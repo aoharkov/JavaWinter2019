@@ -51,7 +51,7 @@ public class Playroom<T extends ToyItem> {
         return filtered;
     }
 
-    public String parse () {
+    public String parse() {
         StringBuilder str = new StringBuilder();
         for (T toy :
                 array) {

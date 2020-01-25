@@ -11,15 +11,27 @@ public class ShapesGenerator {
         for (int i = 0; i < num; i++) {
             String colour;
             switch (i % 4) {
-                case 1 : colour = "green"; break;
-                case 2 : colour = "blue"; break;
-                case 3 : colour = "yellow"; break;
-                default: colour = "red";
+                case 1:
+                    colour = "green";
+                    break;
+                case 2:
+                    colour = "blue";
+                    break;
+                case 3:
+                    colour = "yellow";
+                    break;
+                default:
+                    colour = "red";
             }
             switch (i % 3) {
-                case 1 : shapes[i] = new Triangle(colour, i + 1, i + 1, i + 1); break;
-                case 2 : shapes[i] = new Circle(colour, i + 1); break;
-                default: shapes[i] = new Rectangle(colour, i + 1, i + 1);
+                case 1:
+                    shapes[i] = new Triangle(colour, i + 1.0, i + 1.0, i + 1.0);
+                    break;
+                case 2:
+                    shapes[i] = new Circle(colour, i + 1.0);
+                    break;
+                default:
+                    shapes[i] = new Rectangle(colour, i + 1.0, i + 1.0);
             }
         }
         return shapes;

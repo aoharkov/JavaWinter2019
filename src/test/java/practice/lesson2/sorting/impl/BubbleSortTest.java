@@ -13,7 +13,7 @@ public class BubbleSortTest {
     private static int[] sortedArray;
 
     @Before
-    public void setupArrays(){
+    public void setupArrays() {
         array = new int[]{4, 2, 3, 5, 1, 4, 3};
         sortedArray = Arrays.copyOf(array, array.length);
         Arrays.sort(sortedArray);

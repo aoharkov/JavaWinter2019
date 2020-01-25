@@ -8,8 +8,6 @@ import task2.p2.model.domain.Book;
 import task2.p2.model.domain.BookField;
 import task2.p2.model.domain.QueryType;
 import task2.p2.model.utils.BookArrayGenerator;
-import task2.p2.model.utils.BookGenerator;
-import task4.p1.TemperatureConverter;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -34,7 +32,7 @@ public class BookQueryProcessorTest {
         books = BookArrayGenerator.generate(6);
     }
 
-    @Parameterized.Parameters(name= "{index}: {1} ({2})")
+    @Parameterized.Parameters(name = "{index}: {1} ({2})")
     public static Collection data() {
         Book[] books = BookArrayGenerator.generate(6);
         return Arrays.asList(new Object[][]{

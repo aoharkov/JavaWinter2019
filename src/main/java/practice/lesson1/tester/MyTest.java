@@ -1,9 +1,9 @@
 package practice.lesson1.tester;
 
-import practice.lesson1.tester.annotations.MyAfterAnnotation;
 import practice.lesson1.tester.annotations.MyAfterAllAnnotation;
-import practice.lesson1.tester.annotations.MyBeforeAnnotation;
+import practice.lesson1.tester.annotations.MyAfterAnnotation;
 import practice.lesson1.tester.annotations.MyBeforeAllAnnotation;
+import practice.lesson1.tester.annotations.MyBeforeAnnotation;
 import practice.lesson1.tester.annotations.MyTestAnnotation;
 
 public class MyTest {
@@ -11,6 +11,7 @@ public class MyTest {
     public void beforeAll1() {
         System.out.println("================\nbeforeAll 1\n================");
     }
+
     @MyBeforeAnnotation
     public void before1() {
         System.out.println("before 1");

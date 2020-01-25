@@ -9,5 +9,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface MyTestAnnotation {
     Class expectedException() default Exception.class;
+
     String expectedMessage() default "";
 }

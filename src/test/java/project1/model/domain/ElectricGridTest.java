@@ -11,8 +11,8 @@ import project1.model.domain.entity.SmallAppliance;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class ElectricGridTest {
     private ElectricGrid electricGrid;

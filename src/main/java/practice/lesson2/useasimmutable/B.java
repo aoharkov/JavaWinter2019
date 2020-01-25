@@ -13,7 +13,7 @@ public final class B {
     }
 
     private A copyA(A a) {
-        return isNull(a) ? null :  new A(a.getCode());
+        return isNull(a) ? null : new A(a.getCode());
     }
 
     public String getDescription() {
