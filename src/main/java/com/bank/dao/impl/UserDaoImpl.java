@@ -13,12 +13,15 @@ import java.util.Optional;
 
 public class UserDaoImpl extends AbstractCrudPageableDaoImpl<User> implements UserDao {
     private static final Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
-    private static final String FIND_BY_EMAIL_QUERY = "SELECT * FROM users WHERE email =?";
-    private static final String FIND_BY_ID_QUERY = "SELECT * FROM users WHERE id =?";
+    private static final String FIND_BY_EMAIL_QUERY = "SELECT * FROM users WHERE email = ?";
+    private static final String FIND_BY_ID_QUERY = "SELECT * FROM users WHERE id = ?";
     private static final String FIND_ALL_QUERY = "SELECT * FROM users";
+    private static final String SAVE_QUERY = "INSERT INTO users (id, email, password) values(?, ?, ?)";
+    private static final String UPDATE_QUERY = "UPDATE users SET email = ?, password = ? WHERE id = ?";
+    private static final String DELETE_BY_ID_QUERY = "DELETE FROM users WHERE id = ?";
 
     public UserDaoImpl(ConnectorToDB connector) {
-        super(connector, FIND_BY_ID_QUERY, FIND_ALL_QUERY);
+        super(connector, FIND_BY_ID_QUERY, FIND_ALL_QUERY, SAVE_QUERY, UPDATE_QUERY, DELETE_BY_ID_QUERY);
     }
 
     @Override
@@ -43,5 +46,24 @@ public class UserDaoImpl extends AbstractCrudPageableDaoImpl<User> implements Us
                 .withEmail(resultSet.getString("email"))
                 .withPassword(resultSet.getString("password"))
                 .build();
+    }
+
+    @Override
+    protected void fillPreparedStatementForSaveQuery(PreparedStatement preparedStatement, User entity) throws SQLException {
+        preparedStatement.setInt(1, entity.getId());
+        preparedStatement.setString(2, entity.getEmail());
+        preparedStatement.setString(3, entity.getPassword());
+    }
+
+    @Override
+    protected void fillPreparedStatementForUpdateQuery(PreparedStatement preparedStatement, User entity) throws SQLException {
+        preparedStatement.setString(2, entity.getEmail());
+        preparedStatement.setString(3, entity.getPassword());
+        preparedStatement.setInt(1, entity.getId());
+    }
+
+    @Override
+    protected void fillPreparedStatementForDeleteByIdQuery(PreparedStatement preparedStatement, User entity) throws SQLException {
+        preparedStatement.setInt(1, entity.getId());
     }
 }

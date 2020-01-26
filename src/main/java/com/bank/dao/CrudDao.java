@@ -5,9 +5,9 @@ import java.util.Optional;
 
 public interface CrudDao<E> {
 
-    List<E> findAll();
-
     Optional<E> findById(Integer id);
+
+    List<E> findAll();
 
     void save(E entity);
 

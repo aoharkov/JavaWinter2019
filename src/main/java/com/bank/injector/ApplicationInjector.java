@@ -20,9 +20,9 @@ public class ApplicationInjector {
 
     private static final ConnectorToDB CONNECTOR = new ConnectorToDB("database");
 
-    private static final UserDao USER_REPOSITORY = new UserDaoImpl(CONNECTOR);
+    private static final UserDao USER_DAO = new UserDaoImpl(CONNECTOR);
 
-    private static final UserService USER_SERVICE = new UserServiceImpl(USER_REPOSITORY, PASSWORD_ENCRIPTOR, USER_VALIDATOR);
+    private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, PASSWORD_ENCRIPTOR, USER_VALIDATOR);
 
     private ApplicationInjector() {
 
@@ -34,5 +34,9 @@ public class ApplicationInjector {
 
     public static UserService getUserService() {
         return USER_SERVICE;
+    }
+
+    public static UserDao getUserDao() {
+        return USER_DAO;
     }
 }

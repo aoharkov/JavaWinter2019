@@ -9,12 +9,12 @@ import com.bank.service.validator.Validator;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserDao userRepository;
+    private final UserDao userDao;
     private final PasswordEncoder passwordEncryptor;
     private final Validator<User> userValidator;
 
-    public UserServiceImpl(UserDao userRepository, PasswordEncoder passwordEncryptor, Validator<User> userValidator) {
-        this.userRepository = userRepository;
+    public UserServiceImpl(UserDao userDao, PasswordEncoder passwordEncryptor, Validator<User> userValidator) {
+        this.userDao = userDao;
         this.passwordEncryptor = passwordEncryptor;
         this.userValidator = userValidator;
     }
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     public boolean login(String email, String password) {
         //login validate with email and password
         String encryptedPassword = passwordEncryptor.encrypt(password);
-        return userRepository.findByEmail(email)
+        return userDao.findByEmail(email)
                 .map(user -> user.getPassword())
                 .filter(userPass -> userPass.equals(encryptedPassword))
                 .isPresent();
@@ -32,10 +32,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(User user) {
         userValidator.validate(user);
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+        if (userDao.findByEmail(user.getEmail()).isPresent()) {
             throw new RuntimeException("user is already present with such email");
         }
-        userRepository.save(user);
+        userDao.save(user);
         return user;
     }
 
