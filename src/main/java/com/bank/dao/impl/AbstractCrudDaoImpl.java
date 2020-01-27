@@ -34,6 +34,22 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
     }
 
     @Override
+    public void save(E entity) {
+        try (Connection connection = connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(saveQuery)) {
+
+            fillPreparedStatementForSaveQuery(preparedStatement, entity);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+            throw new DataBaseSqlRuntimeException(e.getMessage(), e);
+        }
+    }
+
+    protected abstract void fillPreparedStatementForSaveQuery(PreparedStatement preparedStatement, E entity) throws SQLException;
+
+    @Override
     public Optional<E> findById(Integer id) {
         try (final PreparedStatement preparedStatement =
                      connector.getConnection().prepareStatement(findByIdQuery)) {
@@ -72,22 +88,6 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
             throw new DataBaseSqlRuntimeException(e.getMessage(), e);
         }
     }
-
-    @Override
-    public void save(E entity) {
-        try (Connection connection = connector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(saveQuery)) {
-
-            fillPreparedStatementForSaveQuery(preparedStatement, entity);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            LOGGER.error(e.getMessage());
-            throw new DataBaseSqlRuntimeException(e.getMessage(), e);
-        }
-    }
-
-    protected abstract void fillPreparedStatementForSaveQuery(PreparedStatement preparedStatement, E entity) throws SQLException;
 
     @Override
     public void update(E entity) {

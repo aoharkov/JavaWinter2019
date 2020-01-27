@@ -5,11 +5,11 @@ import java.util.Optional;
 
 public interface CrudDao<E> {
 
+    void save(E entity);
+
     Optional<E> findById(Integer id);
 
     List<E> findAll();
-
-    void save(E entity);
 
     void update(E entity);
 
