@@ -44,7 +44,7 @@ class User {
         }
 
         @SuppressWarnings("unchecked")
-        protected SELF self(){
+        protected SELF self() {
             return (SELF) this;
         }
     }

@@ -28,7 +28,7 @@ class Client extends User {
     public static class ClientBuilder extends UserBuilder<ClientBuilder> {
         private int code;
 
-        public Client build(){
+        public Client build() {
             return new Client(this);
         }
 

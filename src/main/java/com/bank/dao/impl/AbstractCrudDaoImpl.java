@@ -71,8 +71,8 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
 
     protected abstract E mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 
-    protected <P>Optional<E> findByParam(P param, String sqlQuery,
-                                         BiConsumer<PreparedStatement, P> designedParamSetting) {
+    protected <P> Optional<E> findByParam(P param, String sqlQuery,
+                                          BiConsumer<PreparedStatement, P> designedParamSetting) {
         try (final PreparedStatement preparedStatement =
                      connector.getConnection().prepareStatement(sqlQuery)) {
 

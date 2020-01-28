@@ -1,8 +1,8 @@
 package com.bank.dao.impl;
 
 import com.bank.dao.CrudPageableDao;
-import com.bank.dao.util.ConnectorToDB;
 import com.bank.dao.domain.Pageable;
+import com.bank.dao.util.ConnectorToDB;
 
 public abstract class AbstractCrudPageableDaoImpl<E> extends AbstractCrudDaoImpl<E> implements CrudPageableDao<E> {
 
