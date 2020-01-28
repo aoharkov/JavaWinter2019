@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class TranslatorDictionaryLoader {
     private static Logger logger = LogManager.getLogger(TranslatorDictionaryLoader.class);
-    private static String path = "D:\\Projects\\JavaWinter2019\\src\\main\\java\\task5\\p3\\model\\Pairs for translation.txt";
+    private static String path = "D:\\Projects\\JavaWinter2019\\src\\main\\resources\\tasks\\task5\\p3\\model\\Pairs for translation.txt";
 
     public static Map<String, String> load() {
         Map<String, String> dictionary = new HashMap<>();

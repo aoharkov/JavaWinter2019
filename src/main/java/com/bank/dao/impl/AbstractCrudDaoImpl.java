@@ -13,9 +13,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
     private static final Logger LOGGER = LogManager.getLogger(AbstractCrudDaoImpl.class);
+    private static final BiConsumer<PreparedStatement, Integer> INT_PARAM_SETTER = ((preparedStatement, integer) -> {
+        try {
+            preparedStatement.setInt(1, integer);
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+        }
+    });
+    private static final BiConsumer<PreparedStatement, String> STRING_PARAM_SETTER = ((preparedStatement, str) -> {
+        try {
+            preparedStatement.setString(1, str);
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+        }
+    });
 
     protected final ConnectorToDB connector;
     private final String findByIdQuery;
@@ -51,10 +66,18 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
 
     @Override
     public Optional<E> findById(Integer id) {
-        try (final PreparedStatement preparedStatement =
-                     connector.getConnection().prepareStatement(findByIdQuery)) {
+        return findByParam(id, findByIdQuery, INT_PARAM_SETTER);
+    }
 
-            preparedStatement.setInt(1, id);
+    protected abstract E mapResultSetToEntity(ResultSet resultSet) throws SQLException;
+
+    protected <P>Optional<E> findByParam(P param, String sqlQuery,
+                                         BiConsumer<PreparedStatement, P> designedParamSetting) {
+        try (final PreparedStatement preparedStatement =
+                     connector.getConnection().prepareStatement(sqlQuery)) {
+
+            designedParamSetting.accept(preparedStatement, param);
+
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     return Optional.of(mapResultSetToEntity(resultSet));
@@ -67,8 +90,6 @@ public abstract class AbstractCrudDaoImpl<E> implements CrudDao<E> {
         }
         return Optional.empty();
     }
-
-    protected abstract E mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 
     @Override
     public List<E> findAll() {
