@@ -18,7 +18,11 @@ import task3.p1.view.ToyView;
 
 public class ToyController implements Runnable {
     private Playroom<?> playroom;
-    private ToyView view = new ToyView();
+    private ToyView view;
+
+    public ToyController(ToyView view) {
+        this.view = view;
+    }
 
     @Override
     public void run() {
@@ -35,39 +39,39 @@ public class ToyController implements Runnable {
         sortByPrice();
         calculateTotalPrice();
         filterWithinRangeByPrices();
-        view.viewData("-----------------");
+        view.viewData(ToyView.DELIMITER);
     }
 
     private void demo1() {
-        view.viewData("Example 1: with PlasticToy[] = {6 elements of TOYCAR}");
+        view.viewData(ToyView.EXAMPLE_1);
         PlasticToy[] array = ToysGenerator.generateArrayOfPlasticToys(6, PlasticToyType.TOYCAR);
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
 
     private void demo2() {
-        view.viewData("Example 2: with PlasticToy[] = {6 elements of PUZZLE}");
+        view.viewData(ToyView.EXAMPLE_2);
         PlasticToy[] array = ToysGenerator.generateArrayOfPlasticToys(6, PlasticToyType.PUZZLE);
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
 
     private void demo3() {
-        view.viewData("Example 3: with PlasticToy[] = {DOLL, PUZZLE, TOYBOAT, TOYCAR}");
+        view.viewData(ToyView.EXAMPLE_3);
         PlasticToy[] array = {new Doll(), new Puzzle(), new ToyBoat(), new ToyCar()};
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
 
     private void demo4() {
-        view.viewData("Example 4: with TabletopGame[] = {12 elements of BOARDGAME}");
+        view.viewData(ToyView.EXAMPLE_4);
         TabletopGame[] array = ToysGenerator.generateArrayOfTabletopGames(12, TabletopGameType.BOARDGAME);
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
 
     private void demo5() {
-        view.viewData("Example 5: with TabletopGame[] = {BOARDGAME, CARDGAME, BOARDGAME, CARDGAME}");
+        view.viewData(ToyView.EXAMPLE_5);
         TabletopGame[] array = {
                 new BoardGame("Chess", 30, 2),
                 new CardGame("Solitaire", 6, 1),
@@ -78,31 +82,31 @@ public class ToyController implements Runnable {
     }
 
     private void demo6() {
-        view.viewData("Example 6: with TabletopGame[] = {12 elements of CARDGAME}");
+        view.viewData(ToyView.EXAMPLE_6);
         TabletopGame[] array = ToysGenerator.generateArrayOfTabletopGames(12, TabletopGameType.CARDGAME);
         playroom = new Playroom<>(array);
         runStandardOperations();
     }
 
     private void showArray() {
-        view.viewData("Showing new dataset");
+        view.viewData(ToyView.SHOWING_NEW_DATASET);
         view.viewData(playroom.parse());
     }
 
     private void sortByPrice() {
-        view.viewData("Sorting by price");
+        view.viewData(ToyView.SORTING_BY_PRICE);
         playroom.sortByPrice();
         view.viewData(playroom.parse());
     }
 
     private void calculateTotalPrice() {
-        view.viewData("Calculating total price");
+        view.viewData(ToyView.CALCULATING_TOTAL_PRICE);
         view.viewData(Integer.toString(playroom.calculateTotalPrice()));
     }
 
     private void filterWithinRangeByPrices() {
-        view.viewData("Filtering within range by prices");
-        view.viewData("Please enter the range: min max");
+        view.viewData(ToyView.FILTERING_WITHIN_RANGE_BY_PRICES);
+        view.viewData(ToyView.PLEASE_ENTER_THE_RANGE_MIN_MAX);
         int min = Integer.parseInt(ToyInputData.next());
         int max = Integer.parseInt(ToyInputData.next());
         ToyItem[] filtered = playroom.filterWithinRangeByPrices(min, max);
