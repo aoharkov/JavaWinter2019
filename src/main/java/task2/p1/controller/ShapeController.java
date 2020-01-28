@@ -6,12 +6,13 @@ import task2.p1.view.ShapeInputData;
 import task2.p1.view.ShapeView;
 
 public class ShapeController implements Runnable {
+
     private ShapeService shapeService;
     private ShapeView shapeView;
 
-    public ShapeController() {
-        this.shapeService = new ShapeService();
-        this.shapeView = new ShapeView();
+    public ShapeController(ShapeService shapeService, ShapeView shapeView) {
+        this.shapeService = shapeService;
+        this.shapeView = shapeView;
     }
 
     @Override
@@ -24,22 +25,22 @@ public class ShapeController implements Runnable {
     }
 
     private void readShapeFromConsole() {
-        shapeView.printMessage("\nPlease enter the Shape in following format: Circle:red, 10 -> ");
+        shapeView.printMessage(ShapeView.ENTER_THE_SHAPE);
         System.out.println(ShapeParser.parse(ShapeInputData.nextLine()));
     }
 
     private void showData() {
-        shapeView.printMessage("\nShow data:\n");
+        shapeView.printMessage(ShapeView.SHOW_DATA);
         shapeView.printMessage(shapeService.showData());
     }
 
     private void showTotalArea() {
-        shapeView.printMessage("\nShow total area: ");
+        shapeView.printMessage(ShapeView.SHOW_TOTAL_AREA);
         shapeView.printMessage(shapeService.showTotalArea());
     }
 
     private void chooseTypeForShowingTotalArea() {
-        shapeView.printMessage("\nPlease enter the type of sorting (Rectangle, Triangle, Circle) -> ");
+        shapeView.printMessage(ShapeView.ENTER_THE_TYPE_OF_SORTING);
         ShapeType shapeType = ShapeType.valueOf(ShapeInputData.next().toUpperCase());
         switch (shapeType) {
             case RECTANGLE:
@@ -48,37 +49,37 @@ public class ShapeController implements Runnable {
                 showTotalArea(shapeType.name());
                 break;
             default:
-                shapeView.printMessage("\nInvalid type!!!\n");
+                shapeView.printMessage(ShapeView.INVALID_TYPE);
         }
     }
 
     private void chooseCriteriaForSorting() {
-        shapeView.printMessage("\nPlease enter the criteria of sorting (area, color) -> ");
+        shapeView.printMessage(ShapeView.ENTER_THE_CRITERIA_OF_SORTING);
         String criteria = ShapeInputData.next().toLowerCase();
         switch (criteria) {
-            case "area":
+            case ShapeView.AREA:
                 sortByArea();
                 break;
-            case "color":
+            case ShapeView.COLOR:
                 sortByColour();
                 break;
             default:
-                shapeView.printMessage("\nInvalid criteria!!!\n");
+                shapeView.printMessage(ShapeView.INVALID_CRITERIA);
         }
     }
 
     private void showTotalArea(String type) {
-        shapeView.printMessage("\nShow total area of type (" + type + "): ");
+        shapeView.printMessage(String.format(ShapeView.SHOW_TOTAL_AREA_OF_TYPE, type));
         shapeView.printMessage(shapeService.showTotalArea(type));
     }
 
     private void sortByArea() {
-        shapeView.printMessage("\nShow sorted by area:\n");
+        shapeView.printMessage(ShapeView.SHOW_SORTED_BY_AREA);
         shapeView.printMessage(shapeService.sortByArea());
     }
 
     private void sortByColour() {
-        shapeView.printMessage("\nShow sorted by colour:\n");
+        shapeView.printMessage(ShapeView.SHOW_SORTED_BY_COLOUR);
         shapeView.printMessage(shapeService.sortByColour());
     }
 }

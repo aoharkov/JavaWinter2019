@@ -10,8 +10,8 @@ import java.util.Comparator;
 public class ShapeService {
     private ShapeRepository repository;
 
-    public ShapeService() {
-        this.repository = new ShapeRepository();
+    public ShapeService(ShapeRepository repository) {
+        this.repository = repository;
     }
 
     public String showData() {

@@ -11,7 +11,7 @@ public class Rectangle extends Shape {
     }
 
     public static Rectangle parseShape(String data) {
-        //Example of data == "Rectangle:red, 10, 10"
+        //Example of data == "Rectangle:red,10,10"
         String[] tokens = data.split("[:,]");
         return new Rectangle(tokens[1], Double.parseDouble(tokens[2]), Double.parseDouble(tokens[3]));
     }

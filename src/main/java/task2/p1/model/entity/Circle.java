@@ -9,8 +9,10 @@ public class Circle extends Shape {
     }
 
     public static Circle parseShape(String data) {
-        //Example of data == "Circle:red, 10"
+        //Example of data == "Circle:red,10"
         String[] tokens = data.split("[:,]");
+        System.out.println(tokens[0]);
+        System.out.println(tokens[1]);
         return new Circle(tokens[1], Double.parseDouble(tokens[2]));
     }
 
