@@ -1,14 +1,13 @@
 package project1.model.service;
 
 import project1.model.domain.ElectricGrid;
-import project1.model.repository.HomeApplianceDataBase;
 import project1.model.utils.HomeApplianceParser;
 
 public class HomeApplianceService {
     private ElectricGrid electricGrid;
 
-    public HomeApplianceService() {
-        this.electricGrid = new ElectricGrid(HomeApplianceDataBase.getInMemDataSet());
+    public HomeApplianceService(ElectricGrid electricGrid) {
+        this.electricGrid = electricGrid;
     }
 
     public String calculateTotalPowerConsumption() {

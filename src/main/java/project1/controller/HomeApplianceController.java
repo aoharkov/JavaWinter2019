@@ -6,16 +6,20 @@ import project1.view.HomeApplianceView;
 import project1.view.HomeApplianceViewLang;
 
 public class HomeApplianceController implements Runnable {
-    private HomeApplianceService service;
-    private HomeApplianceView view;
-    private HomeApplianceInput input;
+    private final HomeApplianceService service;
+    private final HomeApplianceView view;
+    private final HomeApplianceInput input;
     private HomeApplianceViewLang lang;
 
-    public HomeApplianceController() {
-        this.service = new HomeApplianceService();
-        this.view = new HomeApplianceView();
-        this.input = new HomeApplianceInput();
-        this.lang = HomeApplianceViewLang.ENG;
+    private HomeApplianceController(HomeApplianceControllerBuilder builder) {
+        this.service = builder.service;
+        this.view = builder.view;
+        this.input = builder.input;
+        this.lang = builder.lang;
+    }
+
+    public static HomeApplianceControllerBuilder builder() {
+        return new HomeApplianceControllerBuilder();
     }
 
     @Override
@@ -45,5 +49,39 @@ public class HomeApplianceController implements Runnable {
 
     public void setLang(HomeApplianceViewLang lang) {
         this.lang = lang;
+    }
+
+    public static final class HomeApplianceControllerBuilder {
+        private HomeApplianceService service;
+        private HomeApplianceView view;
+        private HomeApplianceInput input;
+        private HomeApplianceViewLang lang;
+
+        private HomeApplianceControllerBuilder() {
+        }
+
+        public HomeApplianceControllerBuilder withService(HomeApplianceService service) {
+            this.service = service;
+            return this;
+        }
+
+        public HomeApplianceControllerBuilder withView(HomeApplianceView view) {
+            this.view = view;
+            return this;
+        }
+
+        public HomeApplianceControllerBuilder withInput(HomeApplianceInput input) {
+            this.input = input;
+            return this;
+        }
+
+        public HomeApplianceControllerBuilder withLang(HomeApplianceViewLang lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        public HomeApplianceController build() {
+            return new HomeApplianceController(this);
+        }
     }
 }
