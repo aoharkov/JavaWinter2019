@@ -3,7 +3,7 @@ package com.bank.injector;
 import com.bank.dao.UserDao;
 import com.bank.dao.impl.UserDaoImpl;
 import com.bank.dao.util.ConnectorToDB;
-import com.bank.domain.User;
+import com.bank.entity.User;
 import com.bank.service.PasswordEncoder;
 import com.bank.service.UserService;
 import com.bank.service.impl.UserServiceImpl;

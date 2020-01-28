@@ -3,8 +3,8 @@ package com.bank.dao.impl;
 import com.bank.dao.AccountDao;
 import com.bank.dao.UserDao;
 import com.bank.dao.util.ConnectorToDB;
-import com.bank.domain.Account;
-import com.bank.domain.User;
+import com.bank.entity.Account;
+import com.bank.entity.User;
 import com.bank.injector.ApplicationInjector;
 
 import java.sql.PreparedStatement;

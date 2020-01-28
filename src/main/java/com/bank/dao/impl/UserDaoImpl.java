@@ -2,7 +2,7 @@ package com.bank.dao.impl;
 
 import com.bank.dao.UserDao;
 import com.bank.dao.util.ConnectorToDB;
-import com.bank.domain.User;
+import com.bank.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
