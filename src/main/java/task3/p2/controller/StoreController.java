@@ -10,7 +10,6 @@ import task3.p2.view.StoreView;
 public class StoreController implements Runnable {
     private static final String FRUITS = "Fruits";
     private static final String VEGETABLES = "Vegetables";
-
     private StoreInput input;
     private StoreView view;
     private Store store;
@@ -34,7 +33,7 @@ public class StoreController implements Runnable {
     }
 
     private void openFoodStore() {
-        view.viewData("openFoodStore:");
+        view.viewData(StoreView.OPEN_FOOD_STORE);
         store = new Store("Food Shop");
         store.openSection(FRUITS, 1);
         ProductPack[] fruits = {
@@ -57,7 +56,7 @@ public class StoreController implements Runnable {
     }
 
     private void sellFromVegetableSection() {
-        view.viewData("sellFromVegetableSection:");
+        view.viewData(StoreView.SELL_FROM_VEGETABLE_SECTION);
         Store.Section section = store.getSectionByName(VEGETABLES);
         ProductPack[] cheque = {
                 new ProductPack(new Product("Potato", 12), 10),
@@ -68,7 +67,7 @@ public class StoreController implements Runnable {
     }
 
     private void moveFromVegetableSection() {
-        view.viewData("moveFromVegetableSection:");
+        view.viewData(StoreView.MOVE_FROM_VEGETABLE_SECTION);
         ProductPack[] freight = {new ProductPack(new Product("Tomato", 35), 10)};
         store.moveFromToSection(VEGETABLES, FRUITS, freight);
         view.viewData(store.toString());
@@ -76,8 +75,7 @@ public class StoreController implements Runnable {
     }
 
     private void mergeFoodSections() {
-        view.viewData("mergeFoodSections:");
-        Store.Section largerSection = store.getSectionByName(FRUITS);
+        view.viewData(StoreView.MERGE_FOOD_SECTIONS);
         store.merge(FRUITS, VEGETABLES);
         view.viewData(store.toString());
         view.viewData(StoreView.DELIMITER);
@@ -90,7 +88,7 @@ public class StoreController implements Runnable {
     }
 
     private void sortStoreBy(SortTypes type) {
-        view.viewData(String.format("sortWithinSectionDemo by %s:", type));
+        view.viewData(String.format(StoreView.SORT_WITHIN_SECTION_DEMO_BY, type));
         store.sortByQuery(type);
         view.viewData(store.toString());
         view.viewData(StoreView.DELIMITER);

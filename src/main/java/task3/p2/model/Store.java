@@ -1,11 +1,15 @@
 package task3.p2.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Store {
+    private final static Logger LOGGER = LogManager.getLogger(Store.class);
     private String name;
     private Map<String, Section> sections;
 
@@ -19,7 +23,7 @@ public class Store {
             Section section = new Section(name, location);
             sections.put(name, section);
         } else {
-            System.out.println("Exception: such name is taken by another section of the store");
+            LOGGER.error("Exception: such name is taken by another section of the store");
         }
     }
 
@@ -27,7 +31,7 @@ public class Store {
         if (sections.containsKey(name)) {
             return sections.get(name);
         } else {
-            System.out.println("Exception: there is no section with such name as " + name);
+            LOGGER.error("Exception: there is no section with such name as " + name);
             return null;
         }
     }
@@ -46,7 +50,7 @@ public class Store {
         if (sections.containsKey(name)) {
             sections.remove(name);
         } else {
-            System.out.println("Exception: there is no section with such name as " + name);
+            LOGGER.error("Exception: there is no section with such name as " + name);
         }
     }
 
@@ -98,7 +102,7 @@ public class Store {
                         deleteEmptyProductPack(pos);
                     }
                 } else {
-                    System.out.println("Exception: not enough products left to take");
+                    LOGGER.error("Exception: not enough products left to take");
                 }
             }
         }
