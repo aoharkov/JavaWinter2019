@@ -4,7 +4,6 @@ import com.bank.dao.CrudPageableDao;
 import com.bank.dao.util.ConnectorToDB;
 import com.bank.dao.util.Pageable;
 
-
 public abstract class AbstractCrudPageableDaoImpl<E> extends AbstractCrudDaoImpl<E> implements CrudPageableDao<E> {
 
     public AbstractCrudPageableDaoImpl(ConnectorToDB connector, String findByIdQuery, String findAllQuery, String saveQuery, String updateQuery, String deleteQuery) {
