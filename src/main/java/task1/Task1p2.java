@@ -1,11 +1,16 @@
 package task1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task1p2 {
+    private static final int MAX_AMOUNT_OF_KNOWN_PERFECT_NUMBERS_AS_OF_2019 = 51;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Please, enter the int");
         int n = scanner.nextInt();
+        System.out.print("All perfect numbers before " + n + ": ");
         printAllPerfectNumbersBeforeN(findAllPerfectNumbersBeforeN(n));
     }
 
@@ -22,19 +27,15 @@ public class Task1p2 {
     }
 
     private static int[] findAllPerfectNumbersBeforeN(int n) {
-        int[] store = new int[52];//As of 2019 there are 51 known perfect numbers
+        int[] storeOfPerfectNumbersBeforeN = new int[MAX_AMOUNT_OF_KNOWN_PERFECT_NUMBERS_AS_OF_2019];
         int lenght = 0;
         for (int i = 2; i <= n; i++) {
             if (isPerfect(i)) {
-                store[lenght] = i;
+                storeOfPerfectNumbersBeforeN[lenght] = i;
                 lenght++;
             }
         }
-        int[] allPerfectNumbersBeforeN = new int[lenght];
-        for (int i = 0; i < lenght; i++) {
-            allPerfectNumbersBeforeN[i] = store[i];
-        }
-        return allPerfectNumbersBeforeN;
+        return Arrays.copyOf(storeOfPerfectNumbersBeforeN, lenght);
     }
 
     private static boolean isPerfect(int num) {

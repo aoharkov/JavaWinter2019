@@ -3,8 +3,10 @@ package task1;
 import java.util.Scanner;
 
 public class Task1p1 {
+    private static final int INT_LENGTH_IN_BITS = 32;
 
     public static void main(String[] args) {
+        System.out.println("Please, enter the int");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         printNecessaryRepresentations(n);
@@ -25,7 +27,7 @@ public class Task1p1 {
     }
 
     private static char[] getRepresentation(int num, int base) {
-        char[] invertedRepresentation = new char[33];
+        char[] invertedRepresentation = new char[INT_LENGTH_IN_BITS];
         int length = 0;
         while (num > 0) {
             invertedRepresentation[length] = getCharacter(num % base);

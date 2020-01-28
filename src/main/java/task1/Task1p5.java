@@ -3,8 +3,10 @@ package task1;
 import java.util.Scanner;
 
 public class Task1p5 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Please, enter the int");
         int n = scanner.nextInt();
         int[][] matrix = generateMatrix(n);
         printMatrix(matrix);
@@ -28,10 +30,10 @@ public class Task1p5 {
 
     private static void printMatrix(int[][] matrix) {
         int n = matrix.length;
-        for (int i = 0; i < n; i++) {
-            System.out.print(matrix[i][0]);
+        for (int[] line : matrix) {
+            System.out.print(line[0]);
             for (int j = 1; j < n; j++) {
-                System.out.print(" " + matrix[i][j]);
+                System.out.print(" " + line[j]);
             }
             System.out.println();
         }

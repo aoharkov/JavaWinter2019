@@ -3,8 +3,10 @@ package task1;
 import java.util.Scanner;
 
 public class Task1p3 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Please, enter the int");
         int n = scanner.nextInt();
         printPyramid(getPyramid(n));
     }
