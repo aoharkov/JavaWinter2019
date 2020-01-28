@@ -3,13 +3,12 @@ package task2.p2.model.service;
 import task2.p2.model.domain.Book;
 import task2.p2.model.domain.BookField;
 import task2.p2.model.domain.QueryType;
-import task2.p2.model.utils.BookArrayGenerator;
 
 public class BookService {
     private Book[] books;
 
-    public BookService() {
-        this.books = BookArrayGenerator.generate(12);
+    public BookService(Book[] books) {
+        this.books = books;
     }
 
     public String showBooks() {

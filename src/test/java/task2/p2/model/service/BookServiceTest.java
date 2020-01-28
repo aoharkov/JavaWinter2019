@@ -13,7 +13,7 @@ public class BookServiceTest {
     private BookService service;
 
     public BookServiceTest() {
-        this.service = new BookService();
+        this.service = new BookService(BookArrayGenerator.generate(12));
     }
 
     @Test

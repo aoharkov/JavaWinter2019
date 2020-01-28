@@ -7,12 +7,14 @@ import task2.p2.view.BookInputData;
 import task2.p2.view.BookView;
 
 public class BookController implements Runnable {
+    private static final String AFTER = "after";
+
     private BookService service;
     private BookView view;
 
-    public BookController() {
-        this.service = new BookService();
-        this.view = new BookView();
+    public BookController(BookService service, BookView view) {
+        this.service = service;
+        this.view = view;
     }
 
     @Override
@@ -29,34 +31,33 @@ public class BookController implements Runnable {
     }
 
     private void showBooks() {
-        view.viewData(service.showBooks() + "\n");
+        view.viewData(service.showBooks());
     }
 
     private void showSortedBooksByPublisher() {
-        view.viewData("Books sorted by publisher\n"
-                + service.processQuery(QueryType.SORT_BY, BookField.PUBLISHER_NAME) + "\n");
+        view.viewData(BookView.BOOKS_SORTED_BY_PUBLISHER
+                + service.processQuery(QueryType.SORT_BY, BookField.PUBLISHER_NAME));
     }
 
     private void showBooksOfAuthor() {
-        view.viewData("\nEnter name of author for search -> ");
+        view.viewData(BookView.ENTER_NAME_OF_AUTHOR_FOR_SEARCH);
         String authorName = BookInputData.input();
-        view.viewData("Books of " + authorName + "\n"
-                + service.processQuery(QueryType.GET, BookField.AUTHOR_NAME, authorName) + "\n");
+        view.viewData(String.format(BookView.BOOKS_OF, authorName,
+                service.processQuery(QueryType.GET, BookField.AUTHOR_NAME, authorName)));
     }
 
     private void showBooksOfPublisher() {
-        view.viewData("\nEnter name of publisher for search -> ");
+        view.viewData(BookView.ENTER_NAME_OF_PUBLISHER_FOR_SEARCH);
         String publisherName = BookInputData.input();
-        view.viewData("Books of " + publisherName + "\n"
-                + service.processQuery(QueryType.GET, BookField.PUBLISHER_NAME, publisherName) + "\n");
+        view.viewData(String.format(BookView.BOOKS_OF, publisherName,
+                service.processQuery(QueryType.GET, BookField.PUBLISHER_NAME, publisherName)));
     }
 
     private void filterBooksOfYearAfter() {
-        view.viewData("\nEnter year after to filter-> ");
+        view.viewData(BookView.ENTER_YEAR_AFTER_TO_FILTER);
         int year = Integer.parseInt(BookInputData.input());
-        view.viewData("Books after " + year + "\n"
-                + service.processQuery(QueryType.FILTER, BookField.YEAR_OF_PUBLISHING,
-                Integer.toString(year), "after")
-                + "\n");
+        view.viewData(String.format(BookView.BOOKS_AFTER, year,
+                service.processQuery(QueryType.FILTER, BookField.YEAR_OF_PUBLISHING,
+                        Integer.toString(year), AFTER)));
     }
 }
