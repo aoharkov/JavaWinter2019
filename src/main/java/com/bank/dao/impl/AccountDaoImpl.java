@@ -45,9 +45,9 @@ public class AccountDaoImpl extends AbstractCrudPageableDaoImpl<Account> impleme
 
     @Override
     protected void fillPreparedStatementForUpdateQuery(PreparedStatement preparedStatement, Account entity) throws SQLException {
-        preparedStatement.setInt(2, entity.getUser().getId());
-        preparedStatement.setInt(3, entity.getMoney());
-        preparedStatement.setInt(1, entity.getId());
+        preparedStatement.setInt(1, entity.getUser().getId());
+        preparedStatement.setInt(2, entity.getMoney());
+        preparedStatement.setInt(3, entity.getId());
     }
 
     @Override

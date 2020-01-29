@@ -57,9 +57,9 @@ public class UserDaoImpl extends AbstractCrudPageableDaoImpl<User> implements Us
 
     @Override
     protected void fillPreparedStatementForUpdateQuery(PreparedStatement preparedStatement, User entity) throws SQLException {
-        preparedStatement.setString(2, entity.getEmail());
-        preparedStatement.setString(3, entity.getPassword());
-        preparedStatement.setInt(1, entity.getId());
+        preparedStatement.setString(1, entity.getEmail());
+        preparedStatement.setString(2, entity.getPassword());
+        preparedStatement.setInt(3, entity.getId());
     }
 
     @Override
