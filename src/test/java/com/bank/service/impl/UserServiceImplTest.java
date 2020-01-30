@@ -2,7 +2,7 @@ package com.bank.service.impl;
 
 import com.bank.dao.UserDao;
 import com.bank.entity.User;
-import com.bank.service.PasswordEncoder;
+import com.bank.service.passwordencoder.PasswordEncoder;
 import com.bank.service.validator.UserValidator;
 import org.junit.After;
 import org.junit.Test;
@@ -55,14 +55,14 @@ public class UserServiceImplTest {
 
     @Test
     public void userShouldLoginSuccessfully() {
-        when(passwordEncoder.encrypt(eq(PASSWORD))).thenReturn(ENCODED_PASSWORD);
+        when(passwordEncoder.encode(eq(PASSWORD))).thenReturn(ENCODED_PASSWORD);
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(USER));
 
         final boolean isLogin = userService.login(EMAIL, PASSWORD);
 
         assertTrue(isLogin);
 
-        verify(passwordEncoder).encrypt(eq(PASSWORD));
+        verify(passwordEncoder).encode(eq(PASSWORD));
         verify(userRepository).findByEmail(eq(EMAIL));
         verifyZeroInteractions(userValidator);
 
@@ -70,14 +70,14 @@ public class UserServiceImplTest {
 
     @Test
     public void userShouldNotLoginAsThereIsNoAnyUserWithSuchEmail() {
-        when(passwordEncoder.encrypt(eq(PASSWORD))).thenReturn(ENCODED_PASSWORD);
+        when(passwordEncoder.encode(eq(PASSWORD))).thenReturn(ENCODED_PASSWORD);
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
 
         final boolean isLogin = userService.login(EMAIL, PASSWORD);
 
         assertFalse(isLogin);
 
-        verify(passwordEncoder).encrypt(eq(PASSWORD));
+        verify(passwordEncoder).encode(eq(PASSWORD));
         verify(userRepository).findByEmail(eq(EMAIL));
         verifyZeroInteractions(userValidator);
 
@@ -85,14 +85,14 @@ public class UserServiceImplTest {
 
     @Test
     public void userShouldNotLoginAsThereIsIncorrectPassword() {
-        when(passwordEncoder.encrypt(eq(INCORRECT_PASSWORD))).thenReturn(INCORRECT_ENCODED_PASSWORD);
+        when(passwordEncoder.encode(eq(INCORRECT_PASSWORD))).thenReturn(INCORRECT_ENCODED_PASSWORD);
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(USER));
 
         final boolean isLogin = userService.login(EMAIL, INCORRECT_PASSWORD);
 
         assertFalse(isLogin);
 
-        verify(passwordEncoder).encrypt(eq(INCORRECT_PASSWORD));
+        verify(passwordEncoder).encode(eq(INCORRECT_PASSWORD));
         verify(userRepository).findByEmail(eq(EMAIL));
         verifyZeroInteractions(userValidator);
 
