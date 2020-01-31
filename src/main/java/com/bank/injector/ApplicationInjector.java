@@ -9,6 +9,9 @@ import com.bank.service.UserService;
 import com.bank.service.impl.UserServiceImpl;
 import com.bank.service.validator.UserValidator;
 import com.bank.service.validator.Validator;
+import com.bank.view.ApplicationView;
+
+import java.util.Scanner;
 
 public class ApplicationInjector {
 
@@ -24,6 +27,8 @@ public class ApplicationInjector {
 
     private static final UserService USER_SERVICE = new UserServiceImpl(USER_DAO, PASSWORD_ENCRIPTOR, USER_VALIDATOR);
 
+    private static final ApplicationView APPLICATION_VIEW = new ApplicationView(new Scanner((System.in)));
+
     private ApplicationInjector() {
 
     }
@@ -38,5 +43,9 @@ public class ApplicationInjector {
 
     public static UserDao getUserDao() {
         return USER_DAO;
+    }
+
+    public static ApplicationView getApplicationView() {
+        return APPLICATION_VIEW;
     }
 }
