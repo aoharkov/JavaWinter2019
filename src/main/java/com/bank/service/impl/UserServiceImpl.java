@@ -2,7 +2,7 @@ package com.bank.service.impl;
 
 import com.bank.dao.UserDao;
 import com.bank.entity.User;
-import com.bank.service.PasswordEncoder;
+import com.bank.service.passwordencoder.PasswordEncoder;
 import com.bank.service.UserService;
 import com.bank.service.validator.Validator;
 
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean login(String email, String password) {
         //login validate with email and password
-        String encryptedPassword = passwordEncryptor.encrypt(password);
+        String encryptedPassword = passwordEncryptor.encode(password);
         return userDao.findByEmail(email)
                 .map(user -> user.getPassword())
                 .filter(userPass -> userPass.equals(encryptedPassword))
